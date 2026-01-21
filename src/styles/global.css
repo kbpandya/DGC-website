@@ -61,7 +61,16 @@
   }
   
   .callout {
-    @apply bg-secondary/40 border border-primary/10 border-l-4 border-l-accent p-8 rounded-r-2xl my-12 shadow-sm;
+    @apply p-8 rounded-r-2xl my-12 shadow-sm border border-black/5 border-l-4;
+  }
+  .callout-accent {
+    @apply bg-orange-50/50 border-l-accent;
+  }
+  .callout-info {
+    @apply bg-blue-50/50 border-l-primary;
+  }
+  .callout-success {
+    @apply bg-green-50/50 border-l-green-600;
   }
 }
 
