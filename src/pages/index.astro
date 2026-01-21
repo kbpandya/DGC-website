@@ -4,6 +4,7 @@ import { Image } from 'astro:assets';
 import drPandyaImg from '../assets/doctors/dr-pandya.webp';
 import drPatelImg from '../assets/doctors/dr-patel.webp';
 import homeHero from '../assets/homehero.webp';
+import clinicExteriorImg from '../assets/clinic-exterior.png';
 import { allServices } from '../data/services';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -61,14 +62,15 @@ const highlightedServices = allServices.filter(s =>
         <div class="absolute -inset-4 border-2 border-accent/10 rounded-2xl transform rotate-3" aria-hidden="true"></div>
         <div class="rounded-2xl overflow-hidden shadow-2xl relative transform -rotate-2 hover:rotate-0 transition-transform duration-500">
              <Image 
-                src="https://placehold.co/800x600/e6f7fa/004d66?text=Our+Clinic" 
-                alt="Danville Gastroenterology Center Team" 
+                src={clinicExteriorImg} 
+                alt="Danville Gastroenterology Center Exterior" 
                 width={800}
                 height={600}
                 widths={[400, 800, 1200]}
                 sizes="(max-width: 768px) 100vw, 800px"
                 decoding="async"
-                loading="lazy"
+                loading="eager"
+                fetchpriority="high"
                 class="w-full h-auto object-cover" 
             />
         </div>
