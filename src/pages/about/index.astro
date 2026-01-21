@@ -66,30 +66,26 @@ import drPatelImg from '../../assets/doctors/dr-patel.webp';
 
       <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
         <!-- Dr. Pandya -->
-      <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-        <!-- Dr. Pandya -->
-        <div class="card p-8 flex flex-col items-center text-center card-hover">
+        <a href="/about/dr-pandya" class="card p-8 flex flex-col items-center text-center card-hover group">
             <div class="w-40 h-40 rounded-full overflow-hidden border-4 border-secondary mb-6">
                  <Image src={drPandyaImg} alt="Dr. Bhushan H. Pandya" class="w-full h-full object-cover object-top" />
             </div>
-            <h3 class="text-2xl font-bold text-primary mb-2">Dr. Bhushan H. Pandya</h3>
+            <h3 class="text-2xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">Dr. Bhushan H. Pandya</h3>
             <p class="text-accent font-semibold mb-6 uppercase tracking-wide text-sm">Founder & Gastroenterologist</p>
             <p class="text-gray-600 mb-8">Board-certified specialist with extensive leadership experience in Virginia healthcare.</p>
-            <a href="/about/dr-pandya" class="btn-primary w-full text-center">View Full Profile</a>
-        </div>
+            <span class="btn-primary w-full text-center">View Full Profile</span>
+        </a>
 
         <!-- Dr. Patel -->
-      <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-        <!-- Dr. Pandya -->
-        <div class="card p-8 flex flex-col items-center text-center card-hover">
+        <a href="/about/dr-patel" class="card p-8 flex flex-col items-center text-center card-hover group">
             <div class="w-40 h-40 rounded-full overflow-hidden border-4 border-secondary mb-6">
                  <Image src={drPatelImg} alt="Dr. Mukesh B. Patel" class="w-full h-full object-cover object-top" />
             </div>
-            <h3 class="text-2xl font-bold text-primary mb-2">Dr. Mukesh B. Patel</h3>
+            <h3 class="text-2xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">Dr. Mukesh B. Patel</h3>
             <p class="text-accent font-semibold mb-6 uppercase tracking-wide text-sm">Gastroenterologist</p>
             <p class="text-gray-600 mb-8">Dedicated to preventative care and patient awareness with 25 years of experience.</p>
-            <a href="/about/dr-patel" class="btn-primary w-full text-center">View Full Profile</a>
-        </div>
+            <span class="btn-primary w-full text-center">View Full Profile</span>
+        </a>
       </div>
     </div>
   </section>
