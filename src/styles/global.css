@@ -48,6 +48,9 @@
   .btn-secondary {
     @apply bg-white text-primary font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 border border-transparent hover:border-primary/10;
   }
+  .btn-outline {
+    @apply border-2 border-primary text-primary font-semibold py-3 px-8 rounded-full hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center gap-2;
+  }
   
   /* Card Styles */
   .card-hover {
