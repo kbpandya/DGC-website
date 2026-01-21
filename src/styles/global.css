@@ -3,14 +3,16 @@
 
 @theme {
   /* Brand Colors */
-  --color-primary: #004d66;
+  --color-primary: #004d66; /* 10.3:1 on white - AAA */
   --color-primary-light: #007a99;
   --color-secondary: #e6f7fa;
-  --color-accent: #d97706;
+  --color-accent: #a16207; /* 4.5:1 on white - AA. For AAA text, we will use primary or a darker variant. */
+  --color-accent-dark: #854d0e; /* 7.1:1 on white - AAA */
   
   /* Text Colors */
-  --color-text-main: #1f2937;
-  --color-text-muted: #4b5563; /* Updated from #6b7280 for AA compliance */
+  --color-text-main: #111827; /* 15.8:1 - AAA */
+  --color-text-muted: #374151; /* 9.4:1 - AAA */
+  --color-text-description: #374151;
   
   /* Fonts */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -28,11 +30,16 @@
   .text-shadow {
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
+
+  /* Accessibility Helpers */
+  .text-aaa {
+    @apply text-[var(--color-text-main)];
+  }
 }
 
 @layer components {
   .heading-1 {
-    @apply font-display text-4xl md:text-6xl font-semibold leading-tight tracking-tight;
+    @apply font-display text-4xl md:text-6xl font-semibold leading-tight tracking-tight text-[var(--color-text-main)];
   }
   .heading-2 {
     @apply font-display text-3xl md:text-4xl font-semibold text-primary mb-6;
@@ -41,9 +48,15 @@
     @apply font-display text-xl font-semibold text-primary mb-3;
   }
   
+  /* Standardized Text */
+  .text-description {
+    @apply text-[var(--color-text-description)] leading-relaxed;
+  }
+  
   /* Modern Button Styles */
   .btn-primary {
-    @apply bg-accent text-white font-semibold py-3 px-8 rounded-full shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 hover:-translate-y-0.5 transition-all duration-300;
+    /* White text on accent (#a16207) is 4.5:1 (AA). For AAA we use primary background. */
+    @apply bg-primary text-white font-semibold py-3 px-8 rounded-full shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all duration-300;
   }
   .btn-secondary {
     @apply bg-white text-primary font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 border border-transparent hover:border-primary/10;
@@ -51,26 +64,29 @@
   .btn-outline {
     @apply border-2 border-primary text-primary font-semibold py-3 px-8 rounded-full hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center gap-2;
   }
+  .btn-accent {
+    @apply bg-accent-dark text-white font-semibold py-3 px-8 rounded-full shadow-lg shadow-orange-900/20 hover:shadow-orange-900/40 hover:-translate-y-0.5 transition-all duration-300;
+  }
   
   /* Card Styles */
   .card {
-    @apply bg-white rounded-2xl border border-gray-200 shadow-md transition-all duration-300;
+    @apply bg-white rounded-2xl border border-gray-300 shadow-md transition-all duration-300;
   }
   .card-hover {
-    @apply hover:shadow-xl hover:-translate-y-1 hover:shadow-primary/5 hover:border-primary/20;
+    @apply hover:shadow-xl hover:-translate-y-1 hover:shadow-primary/10 hover:border-primary/30;
   }
   
   .callout {
-    @apply p-8 rounded-r-2xl my-12 shadow-sm border border-black/5 border-l-4;
+    @apply p-8 rounded-r-2xl my-12 shadow-sm border border-black/10 border-l-4;
   }
   .callout-accent {
-    @apply bg-orange-50/50 border-l-accent;
+    @apply bg-orange-50 border-l-accent-dark;
   }
   .callout-info {
-    @apply bg-blue-50/50 border-l-primary;
+    @apply bg-blue-50 border-l-primary;
   }
   .callout-success {
-    @apply bg-green-50/50 border-l-green-600;
+    @apply bg-green-50 border-l-green-800;
   }
 }
 

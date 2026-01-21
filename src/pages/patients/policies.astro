@@ -52,9 +52,9 @@ const billingProtections = [
 <Layout title="Office Policies & Patient Rights" description="Review Danville Gastroenterology Center's office policies, patient rights, and responsibilities.">
   <section class="bg-secondary pt-40 pb-20 relative overflow-hidden">
     <div class="container mx-auto px-4 relative z-10 text-center">
-      <span class="text-accent font-bold tracking-wider uppercase text-sm mb-2 block">Practice Guidelines</span>
+      <span class="text-accent-dark font-bold tracking-wider uppercase text-sm mb-2 block">Practice Guidelines</span>
       <h1 class="heading-1 text-primary mb-6">Office Policies & Patient Rights</h1>
-      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+      <p class="text-xl text-description max-w-2xl mx-auto">
         Important information regarding our office operations and your rights as a patient.
       </p>
     </div>
@@ -73,7 +73,7 @@ const billingProtections = [
               {officePolicies.map(policy => (
                 <div>
                   <h3 class="text-xl font-bold text-primary mb-3">{policy.title}</h3>
-                  <p class="text-gray-600 leading-relaxed">{policy.content}</p>
+                  <p class="text-description leading-relaxed">{policy.content}</p>
                 </div>
               ))}
             </div>
@@ -83,13 +83,13 @@ const billingProtections = [
         <div class="grid md:grid-cols-2 gap-12">
           <div>
             <h2 class="text-2xl font-bold text-primary mb-8 flex items-center gap-3">
-               <span class="w-2 h-8 bg-accent rounded-full"></span>
+               <span class="w-2 h-8 bg-accent-dark rounded-full"></span>
                Patient Rights
             </h2>
             <ul class="space-y-4">
               {patientRights.map(right => (
-                <li class="flex gap-3 text-gray-600 text-sm leading-relaxed">
-                  <svg class="w-5 h-5 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <li class="flex gap-3 text-description text-sm leading-relaxed">
+                  <svg class="w-5 h-5 text-accent-dark flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                   {right}
                 </li>
               ))}
@@ -102,7 +102,7 @@ const billingProtections = [
             </h2>
             <ul class="space-y-4">
               {responsibilities.map(item => (
-                <li class="flex gap-3 text-gray-600 text-sm leading-relaxed">
+                <li class="flex gap-3 text-description text-sm leading-relaxed">
                   <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                   {item}
                 </li>
@@ -118,11 +118,11 @@ const billingProtections = [
                 {billingProtections.map(item => (
                   <div>
                     <h4 class="font-bold text-primary mb-2">{item.title}</h4>
-                    <p class="text-sm text-gray-600 leading-relaxed">{item.content}</p>
+                    <p class="text-sm text-description leading-relaxed">{item.content}</p>
                   </div>
                 ))}
             </div>
-            <p class="text-xs text-gray-400 mt-8 pt-8 border-t border-gray-200">
+            <p class="text-xs text-description mt-8 pt-8 border-t border-gray-200">
               For more information about your billing protections, visit <a href="https://www.cms.gov/nosurprises" class="underline hover:text-primary transition-colors">www.cms.gov/nosurprises</a>.
             </p>
           </div>
@@ -133,7 +133,7 @@ const billingProtections = [
           <div class="sticky top-32 space-y-8">
             <div class="card bg-primary p-8 text-white shadow-xl">
               <h3 class="text-xl font-bold mb-4">Questions?</h3>
-              <p class="text-blue-100 text-sm mb-6 leading-relaxed">
+              <p class="text-blue-50 text-sm mb-6 leading-relaxed">
                 If you have questions about our policies, our staff is available during office hours to provide clarification.
               </p>
               <div class="space-y-4">

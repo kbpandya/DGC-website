@@ -21,12 +21,12 @@ const highlightedServices = allServices.filter(s =>
     
     <div class="relative z-20 container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
       <div class="animate-fade-in-up">
-        <span class="inline-block py-1 px-3 rounded-full bg-accent/10 text-accent border border-accent/20 text-sm font-semibold mb-6 tracking-wide uppercase">
+        <span class="inline-block py-1 px-3 rounded-full bg-accent/10 text-accent-dark border border-accent/20 text-sm font-bold mb-6 tracking-wide uppercase">
           Trusted Since 1995
         </span>
         <h1 class="heading-1 mb-6 text-shadow">
           Advanced Digestive <br/>
-          <span class="text-accent">Health Care</span>
+          <span class="text-accent-dark">Health Care</span>
         </h1>
         <p class="text-lg md:text-xl mb-10 text-gray-100 max-w-lg leading-relaxed opacity-90">
           State-of-the-art gastroenterology services delivered with compassion. We are dedicated to your long-term health and comfort.
@@ -71,32 +71,32 @@ const highlightedServices = allServices.filter(s =>
       
       <div class="order-1 md:order-2">
         <h2 class="heading-2">Welcome to Danville Gastroenterology Center</h2>
-        <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+        <p class="text-description mb-6 text-lg leading-relaxed">
           Our mission is to provide the highest quality medical care to our patients. We specialize in the diagnosis and treatment of diseases of the digestive tract and liver.
         </p>
         
         <div class="space-y-4 mb-8">
             <div class="flex items-start gap-4 p-4 rounded-xl bg-gray-50 hover:bg-secondary/30 transition-colors">
-                <div class="bg-white p-2 rounded-full shadow-sm text-accent">
+                <div class="bg-white p-2 rounded-full shadow-sm text-accent-dark">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
                 <div>
                     <h4 class="font-semibold text-primary">Same-Day Appointments</h4>
-                    <p class="text-sm text-gray-600">Urgent care when you need it most.</p>
+                    <p class="text-sm text-description">Urgent care when you need it most.</p>
                 </div>
             </div>
              <div class="flex items-start gap-4 p-4 rounded-xl bg-gray-50 hover:bg-secondary/30 transition-colors">
-                <div class="bg-white p-2 rounded-full shadow-sm text-accent">
+                <div class="bg-white p-2 rounded-full shadow-sm text-accent-dark">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
                 <div>
                     <h4 class="font-semibold text-primary">Accepting New Patients</h4>
-                    <p class="text-sm text-gray-600">Easy onboarding process for all.</p>
+                    <p class="text-sm text-description">Easy onboarding process for all.</p>
                 </div>
             </div>
         </div>
 
-        <a href="/about" class="text-primary font-semibold hover:text-accent flex items-center gap-2 group transition-colors">
+        <a href="/about" class="text-primary font-bold hover:text-accent-dark flex items-center gap-2 group transition-colors">
           Learn more about our practice
           <span class="transform group-hover:translate-x-1 transition-transform">&rarr;</span>
         </a>
@@ -111,9 +111,9 @@ const highlightedServices = allServices.filter(s =>
 
     <div class="container mx-auto px-4 relative z-10">
       <div class="text-center mb-16 max-w-3xl mx-auto">
-        <span class="text-accent font-semibold tracking-wider uppercase text-sm mb-2 block">Comprehensive Care</span>
+        <span class="text-accent-dark font-semibold tracking-wider uppercase text-sm mb-2 block">Comprehensive Care</span>
         <h2 class="heading-2">Our Medical Services</h2>
-        <p class="text-gray-600 text-lg">We use the latest technology to provide accurate diagnoses and effective treatments for all digestive conditions.</p>
+        <p class="text-description text-lg">We use the latest technology to provide accurate diagnoses and effective treatments for all digestive conditions.</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
@@ -122,9 +122,9 @@ const highlightedServices = allServices.filter(s =>
             <div class="w-14 h-14 bg-secondary rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.icon}></path></svg>
             </div>
-            <h3 class="heading-3 group-hover:text-accent transition-colors">{service.title}</h3>
-            <p class="text-gray-600 mb-8 flex-grow leading-relaxed">{service.shortDesc}</p>
-            <span class="text-primary font-semibold hover:text-accent flex items-center gap-2 transition-all group/link">
+            <h3 class="heading-3 group-hover:text-accent-dark transition-colors">{service.title}</h3>
+            <p class="text-description mb-8 flex-grow leading-relaxed">{service.shortDesc}</p>
+            <span class="text-primary font-bold hover:text-accent-dark flex items-center gap-2 transition-all group/link">
                 Read More <span class="text-xl group-hover/link:translate-x-1 transition-transform">›</span>
             </span>
           </a>
@@ -163,9 +163,9 @@ const highlightedServices = allServices.filter(s =>
                  />
             </div>
             <div class="text-center md:text-left">
-                <h3 class="text-2xl font-semibold text-primary mb-1 font-display group-hover:text-accent transition-colors">Dr. Bhushan H. Pandya</h3>
-                <p class="text-accent font-medium mb-6 uppercase tracking-wide text-sm">Gastroenterologist</p>
-                <span class="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors group/link">
+                <h3 class="text-2xl font-bold text-primary mb-1 font-display group-hover:text-accent-dark transition-colors">Dr. Bhushan H. Pandya</h3>
+                <p class="text-accent-dark font-bold mb-6 uppercase tracking-wide text-sm">Gastroenterologist</p>
+                <span class="inline-flex items-center gap-2 text-primary font-bold hover:text-accent-dark transition-colors group/link">
                   View Full Profile 
                   <span class="transform group-hover/link:translate-x-1 transition-transform">&rarr;</span>
                 </span>
@@ -187,9 +187,9 @@ const highlightedServices = allServices.filter(s =>
                  />
             </div>
             <div class="text-center md:text-left">
-                <h3 class="text-2xl font-semibold text-primary mb-1 font-display group-hover:text-accent transition-colors">Dr. Mukesh B. Patel</h3>
-                <p class="text-accent font-medium mb-6 uppercase tracking-wide text-sm">Gastroenterologist</p>
-                <span class="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors group/link">
+                <h3 class="text-2xl font-bold text-primary mb-1 font-display group-hover:text-accent-dark transition-colors">Dr. Mukesh B. Patel</h3>
+                <p class="text-accent-dark font-bold mb-6 uppercase tracking-wide text-sm">Gastroenterologist</p>
+                <span class="inline-flex items-center gap-2 text-primary font-bold hover:text-accent-dark transition-colors group/link">
                   View Full Profile 
                   <span class="transform group-hover/link:translate-x-1 transition-transform">&rarr;</span>
                 </span>
@@ -204,7 +204,7 @@ const highlightedServices = allServices.filter(s =>
     <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
     <div class="container mx-auto px-4 relative z-10">
       <h2 class="heading-2 text-white mb-6">Ready to Prioritize Your Health?</h2>
-      <p class="text-xl text-blue-100 mb-10 max-w-2xl mx-auto font-light">
+      <p class="text-xl text-blue-50 mb-10 max-w-2xl mx-auto font-light">
         Don't delay your digestive health. Schedule a consultation with our experts today.
       </p>
       <button class="bg-white text-primary font-semibold py-4 px-12 rounded-full text-lg shadow-2xl hover:bg-gray-100 hover:scale-105 transition-all duration-300 trigger-booking">

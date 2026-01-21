@@ -70,19 +70,19 @@ const testimonials = [
   <section class="bg-secondary pt-40 pb-20 text-center relative overflow-hidden">
     <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
     <div class="container mx-auto px-4 relative z-10">
-      <span class="text-accent font-bold tracking-wider uppercase text-sm mb-2 block">Patient Feedback</span>
+      <span class="text-accent-dark font-bold tracking-wider uppercase text-sm mb-2 block">Patient Feedback</span>
       <h1 class="heading-1 text-primary mb-6">Patient Testimonials</h1>
       
       <!-- Rating Highlight -->
       <div class="flex flex-col items-center gap-2">
-        <div class="flex text-accent text-2xl">
+        <div class="flex text-accent-dark text-2xl">
           {[1, 2, 3, 4].map(() => <span>★</span>)}
           <span class="relative">
             <span class="opacity-30">★</span>
-            <span class="absolute inset-0 overflow-hidden w-[20%] text-accent">★</span>
+            <span class="absolute inset-0 overflow-hidden w-[20%] text-accent-dark">★</span>
           </span>
         </div>
-        <p class="text-gray-600 font-bold uppercase tracking-widest text-xs mt-2">Patient Rating</p>
+        <p class="text-description font-bold uppercase tracking-widest text-xs mt-2">Patient Rating</p>
       </div>
     </div>
   </section>
@@ -92,13 +92,13 @@ const testimonials = [
     <div class="container mx-auto px-4">
       <div class="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto">
         {testimonials.map((t) => (
-          <div class="card p-8 italic text-gray-600 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-1.5rem)] max-w-md flex flex-col justify-between">
+          <div class="card p-8 italic text-description w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-1.5rem)] max-w-md flex flex-col justify-between">
             <div>
               <p class="mb-6 leading-relaxed">"{t.quote}"</p>
             </div>
             <div class="border-t border-gray-100 pt-4 mt-auto">
               <span class="font-bold text-primary not-italic block text-sm">— {t.author}</span>
-              <span class="text-xs text-gray-400 not-italic block mt-1">{t.date}</span>
+              <span class="text-xs text-description not-italic block mt-1">{t.date}</span>
             </div>
           </div>
         ))}
