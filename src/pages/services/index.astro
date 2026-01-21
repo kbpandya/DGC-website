@@ -22,8 +22,9 @@ import { servicesData } from '../../data/services';
       
       {servicesData.map((category) => (
         <div class="scroll-mt-24">
-          <div class="mb-12 border-l-4 border-accent pl-6">
-            <h2 class="heading-2 mb-2">{category.title}</h2>
+          <div class="mb-16 text-center max-w-3xl mx-auto">
+            <h2 class="heading-2 mb-4">{category.title}</h2>
+            <div class="w-16 h-1 bg-accent mx-auto mb-6 rounded-full"></div>
             <p class="text-xl text-gray-600">{category.description}</p>
           </div>
 
