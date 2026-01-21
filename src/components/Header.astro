@@ -8,12 +8,16 @@ const navItems = [
   { 
     href: '/services', 
     label: 'Services',
-    subItems: allServices.map(s => ({ href: s.href, label: s.title }))
+    subItems: [
+      { href: '/services', label: 'All Services' },
+      ...allServices.map(s => ({ href: s.href, label: s.title }))
+    ]
   },
   {
     href: '/patients',
     label: 'Patients',
     subItems: [
+      { href: '/patients', label: 'Patient Center' },
       { href: '/patients/policies', label: 'Office Policies' },
       { href: '/patients/instructions', label: 'Procedure Instructions' },
     ]
@@ -23,6 +27,7 @@ const navItems = [
     href: '/about',
     label: 'About',
     subItems: [
+      { href: '/about', label: 'About Our Practice' },
       { href: '/about/dr-pandya', label: 'Dr. Pandya' },
       { href: '/about/dr-patel', label: 'Meet Dr. Patel' },
     ]
@@ -112,7 +117,6 @@ const navItems = [
                 </span>
               </summary>
               <ul class="pl-0 mt-4 flex flex-col gap-3">
-                <li><a href={item.href} class="block py-2 text-sm font-semibold text-accent uppercase tracking-wider">All {item.label}</a></li>
                 {item.subItems.map((sub) => (
                   <li>
                     <a href={sub.href} class="block py-2 text-base text-gray-600 hover:text-primary pl-4 border-l-2 border-gray-100 hover:border-accent transition-colors">
