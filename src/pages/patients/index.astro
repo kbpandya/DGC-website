@@ -3,27 +3,21 @@ import Layout from '../../layouts/Layout.astro';
 
 const resources = [
   {
-    title: "Forms & Office Policies",
-    description: "Prepare for your visit by reviewing our office policies and downloading necessary patient forms.",
-    href: "/patients/forms",
-    icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+    title: "Office Policies & Rights",
+    description: "Review our office guidelines, patient rights, and responsibilities to ensure a productive and respectful visit.",
+    href: "/patients/policies",
+    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
   },
   {
     title: "Procedure Instructions",
     description: "Step-by-step preparation guides for Colonoscopy, EGD, and other diagnostic procedures.",
     href: "/patients/instructions",
     icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-  },
-  {
-    title: "Rights & Responsibilities",
-    description: "Learn about your rights as a patient and our commitment to providing safe, respectful care.",
-    href: "/patients/rights",
-    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
   }
 ];
 ---
 
-<Layout title="Patient Center" description="Resources for patients of Danville Gastroenterology Center. Access forms, procedure instructions, and learn about your rights.">
+<Layout title="Patient Center" description="Resources for patients of Danville Gastroenterology Center. Access office policies and procedure instructions.">
   <!-- Hero Section -->
   <section class="bg-secondary pt-40 pb-20 relative overflow-hidden text-center">
     <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
@@ -39,7 +33,7 @@ const resources = [
   <!-- Resource Grid -->
   <section class="py-24 bg-white">
     <div class="container mx-auto px-4">
-      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
         {resources.map((item) => (
           <a href={item.href} class="group bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl hover:border-primary/20 transition-all duration-300 card-hover flex flex-col items-start">
             <div class="w-16 h-16 bg-secondary rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">

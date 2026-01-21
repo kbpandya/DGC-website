@@ -1,0 +1,141 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const officePolicies = [
+  {
+    title: "Appointments & Cancellations",
+    content: "Patients are seen by appointment. Please bring all current medications, insurance information, and a valid photo ID to every visit. To remain fair to all patients, we require at least 24 hours' notice for cancellations. A **$25 fee** may be applied to late cancellations or no-show appointments."
+  },
+  {
+    title: "Prescription Refills",
+    content: "Please monitor your medications and request refills at least one week in advance. Refills are processed during regular business hours; we do not process refill requests on Fridays, weekends, or holidays. Generally, a follow-up visit is required if you haven't been seen within the past year."
+  },
+  {
+    title: "Telephone Calls & After Hours",
+    content: "Our staff is trained to handle clinical inquiries efficiently. For non-urgent matters after hours, you may call our office at (434) 791-1152. In the event of a medical emergency, please call 911 immediately or proceed to the nearest emergency room."
+  },
+  {
+    title: "Confidentiality & Privacy",
+    content: "Your medical records and health information are strictly confidential. In accordance with HIPAA guidelines, we will not release any information to third parties, including family members or employers, without your explicit written authorization."
+  }
+];
+
+const patientRights = [
+  "Receive considerate, respectful, and safe care free from all forms of abuse or harassment.",
+  "Participate in informed decisions regarding your diagnosis, treatment options, and likely outcomes.",
+  "Know the names and professional roles of all healthcare providers involved in your care.",
+  "Full consideration of your personal privacy and the confidentiality of your medical information.",
+  "Review your medical records and receive clear explanations of the information contained within them.",
+  "Voice concerns or grievances and receive a timely response from practice leadership."
+];
+
+const responsibilities = [
+  "Provide accurate and complete information about your medical history, symptoms, and current medications.",
+  "Follow the treatment plan and clinical instructions agreed upon with your physician.",
+  "Accept financial responsibility for services rendered and provide up-to-date insurance information.",
+  "Treat our staff, physicians, and other patients with respect and courtesy.",
+  "Arrange for a responsible adult driver to remain present if you are undergoing a sedated procedure."
+];
+
+const billingProtections = [
+  {
+    title: "Surprise Billing Protections",
+    content: "Under the 'No Surprises Act,' you are protected from balance billing when treated by an out-of-network provider at an in-network facility. Your responsibility is limited to your plan's in-network cost-sharing amounts."
+  },
+  {
+    title: "Good Faith Estimates",
+    content: "You have the right to receive a 'Good Faith Estimate' explaining the expected cost of your medical care before services are provided."
+  }
+];
+---
+
+<Layout title="Office Policies & Patient Rights" description="Review Danville Gastroenterology Center's office policies, patient rights, and responsibilities.">
+  <section class="bg-secondary pt-40 pb-20 relative overflow-hidden">
+    <div class="container mx-auto px-4 relative z-10 text-center">
+      <span class="text-accent font-bold tracking-wider uppercase text-sm mb-2 block">Practice Guidelines</span>
+      <h1 class="heading-1 text-primary mb-6">Office Policies & Patient Rights</h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Important information regarding our office operations and your rights as a patient.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto space-y-24">
+        
+        <!-- Office Policies -->
+        <div>
+          <h2 class="heading-2 border-b border-gray-100 pb-4">General Policies</h2>
+          <div class="grid gap-12 mt-8">
+            {officePolicies.map(policy => (
+              <div>
+                <h3 class="text-xl font-bold text-primary mb-3">{policy.title}</h3>
+                <p class="text-gray-600 leading-relaxed">{policy.content}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Rights & Responsibilities -->
+        <div class="grid md:grid-cols-2 gap-16">
+          <div>
+            <h2 class="text-2xl font-bold text-primary mb-8 flex items-center gap-3">
+               <span class="w-2 h-8 bg-accent rounded-full"></span>
+               Patient Rights
+            </h2>
+            <ul class="space-y-4">
+              {patientRights.map(right => (
+                <li class="flex gap-3 text-gray-600 text-sm leading-relaxed italic">
+                  <span class="text-accent font-bold">✓</span>
+                  {right}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h2 class="text-2xl font-bold text-primary mb-8 flex items-center gap-3">
+               <span class="w-2 h-8 bg-primary rounded-full"></span>
+               Responsibilities
+            </h2>
+            <ul class="space-y-4">
+              {responsibilities.map(item => (
+                <li class="flex gap-3 text-gray-600 text-sm leading-relaxed">
+                  <span class="text-primary font-bold">→</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <!-- Billing -->
+        <div class="bg-gray-50 p-10 rounded-3xl border border-gray-100">
+           <h2 class="heading-3 mb-6">Financial Policies & Protections</h2>
+           <div class="grid md:grid-cols-2 gap-10">
+              {billingProtections.map(item => (
+                <div>
+                  <h4 class="font-bold text-primary mb-2">{item.title}</h4>
+                  <p class="text-sm text-gray-600 leading-relaxed">{item.content}</p>
+                </div>
+              ))}
+           </div>
+           <p class="text-xs text-gray-400 mt-8 pt-8 border-t border-gray-200">
+             For more information about your billing protections, visit <a href="https://www.cms.gov/nosurprises" class="underline hover:text-primary transition-colors">www.cms.gov/nosurprises</a>.
+           </p>
+        </div>
+
+        <!-- Support CTA -->
+        <div class="text-center bg-primary text-white p-12 rounded-3xl shadow-xl">
+          <h3 class="text-2xl font-bold mb-4">Questions about our policies?</h3>
+          <p class="text-blue-100 mb-8">Our staff is available during office hours to provide clarification.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+             <a href="tel:4347911152" class="btn-secondary text-primary px-10">Call (434) 791-1152</a>
+             <button class="bg-white/10 hover:bg-white/20 border border-white/20 px-10 py-3 rounded-full transition-all trigger-booking">Book Appointment</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</Layout>
