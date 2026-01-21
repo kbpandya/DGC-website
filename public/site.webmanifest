@@ -1,0 +1,16 @@
+{
+  "name": "Danville Gastroenterology Center",
+  "short_name": "Danville Gastro",
+  "description": "Expert digestive health care in Danville, VA for over 30 years.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#004d66",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

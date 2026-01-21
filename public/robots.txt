@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.yourgastrocare.com/sitemap-index.xml
+Sitemap: https://danvillegastro.com/sitemap-index.xml
