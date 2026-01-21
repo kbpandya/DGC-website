@@ -16,12 +16,12 @@ import logo from '../assets/logo.jpg';
         <!-- Header -->
         <div class="bg-white px-6 py-4 border-b border-gray-100 flex justify-between items-center relative z-20">
             <div class="flex items-center gap-3">
-                 <Image src={logo} alt="Logo" class="h-10 w-auto object-contain" />
-                 <h3 class="text-lg font-semibold text-main font-display" id="modal-title">Request Appointment</h3>
+                 <Image src={logo} alt="Danville Gastroenterology Center Logo" class="h-10 w-auto object-contain" />
+                 <h3 class="text-lg font-semibold text-main font-display" id="modal-title" aria-live="polite">Request Appointment</h3>
             </div>
             <button type="button" id="close-booking-btn" class="rounded-full p-2 text-description hover:bg-gray-100 hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary">
-              <span class="sr-only">Close</span>
-              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <span class="sr-only">Close Appointment Modal</span>
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
@@ -32,16 +32,16 @@ import logo from '../assets/logo.jpg';
             
             <!-- Step Progress -->
             <div class="px-8 pt-6">
-                <div class="flex items-center justify-between max-w-xs mx-auto">
-                    <div class="step-indicator w-3 h-3 rounded-full bg-accent transition-colors duration-300" id="step-dot-1"></div>
-                    <div class="h-0.5 flex-grow bg-gray-100 mx-2 overflow-hidden">
+                <div class="flex items-center justify-between max-w-xs mx-auto" role="progressbar" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1" id="step-progress-bar">
+                    <div class="step-indicator w-3 h-3 rounded-full bg-accent transition-colors duration-300" id="step-dot-1" aria-label="Step 1: Date and Time selection"></div>
+                    <div class="h-0.5 flex-grow bg-gray-100 mx-2 overflow-hidden" aria-hidden="true">
                         <div class="h-full bg-accent w-0 transition-all duration-500" id="step-line-1"></div>
                     </div>
-                    <div class="step-indicator w-3 h-3 rounded-full bg-gray-200 transition-colors duration-300" id="step-dot-2"></div>
-                    <div class="h-0.5 flex-grow bg-gray-100 mx-2 overflow-hidden">
+                    <div class="step-indicator w-3 h-3 rounded-full bg-gray-200 transition-colors duration-300" id="step-dot-2" aria-label="Step 2: Contact Information"></div>
+                    <div class="h-0.5 flex-grow bg-gray-100 mx-2 overflow-hidden" aria-hidden="true">
                         <div class="h-full bg-accent w-0 transition-all duration-500" id="step-line-2"></div>
                     </div>
-                    <div class="step-indicator w-3 h-3 rounded-full bg-gray-200 transition-colors duration-300" id="step-dot-3"></div>
+                    <div class="step-indicator w-3 h-3 rounded-full bg-gray-200 transition-colors duration-300" id="step-dot-3" aria-label="Step 3: Confirmation"></div>
                 </div>
             </div>
 
@@ -58,18 +58,18 @@ import logo from '../assets/logo.jpg';
                         <div class="flex items-center justify-between mb-4">
                             <h5 id="current-month-display" class="font-semibold text-main uppercase tracking-widest text-sm">January 2026</h5>
                             <div class="flex gap-2">
-                                <button id="prev-month" class="p-1 rounded hover:bg-gray-100 text-gray-400 hover:text-primary transition-colors">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                                <button id="prev-month" class="p-1 rounded hover:bg-gray-100 text-gray-400 hover:text-primary transition-colors" aria-label="Previous Month">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                                 </button>
-                                <button id="next-month" class="p-1 rounded hover:bg-gray-100 text-gray-400 hover:text-primary transition-colors">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7-7"></path></svg>
+                                <button id="next-month" class="p-1 rounded hover:bg-gray-100 text-gray-400 hover:text-primary transition-colors" aria-label="Next Month">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7-7"></path></svg>
                                 </button>
                             </div>
                         </div>
-                        <div class="grid grid-cols-7 text-center text-[10px] font-semibold text-gray-400 uppercase mb-2">
+                        <div class="grid grid-cols-7 text-center text-[10px] font-semibold text-gray-400 uppercase mb-2" aria-hidden="true">
                             <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
                         </div>
-                        <div id="calendar-grid" class="grid grid-cols-7 gap-1">
+                        <div id="calendar-grid" class="grid grid-cols-7 gap-1" role="grid" aria-label="Calendar">
                             <!-- Days generated by JS -->
                         </div>
                     </div>
@@ -79,12 +79,12 @@ import logo from '../assets/logo.jpg';
                         <div class="flex items-center justify-between mb-4">
                             <h5 id="selected-date-display" class="font-semibold text-main text-sm">Select a date first</h5>
                         </div>
-                        <div class="grid grid-cols-2 gap-3" id="time-slots-grid">
+                        <div class="grid grid-cols-2 gap-3" id="time-slots-grid" role="listbox" aria-label="Available time slots">
                             <!-- Slots generated by JS -->
                         </div>
                         <div class="mt-6 p-4 bg-secondary/30 rounded-xl">
                             <p class="text-[10px] uppercase font-semibold text-primary tracking-widest mb-2">Selected Slots (<span id="slot-count">0</span>/3)</p>
-                            <div id="selected-slots-list" class="flex flex-wrap gap-2 min-h-[20px]">
+                            <div id="selected-slots-list" class="flex flex-wrap gap-2 min-h-[20px]" aria-live="polite">
                                 <span class="text-xs text-gray-400 italic">No slots selected</span>
                             </div>
                         </div>
@@ -101,27 +101,27 @@ import logo from '../assets/logo.jpg';
 
                 <form id="contact-form" class="max-w-md mx-auto grid grid-cols-2 gap-4">
                     <div class="col-span-1">
-                        <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">First Name</label>
-                        <input type="text" name="firstName" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all text-sm" />
+                        <label for="firstName" class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">First Name</label>
+                        <input type="text" id="firstName" name="firstName" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all text-sm" />
                     </div>
                     <div class="col-span-1">
-                        <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Last Name</label>
-                        <input type="text" name="lastName" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all text-sm" />
+                        <label for="lastName" class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all text-sm" />
                     </div>
                     <div class="col-span-2">
-                        <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Email Address</label>
-                        <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all text-sm" />
+                        <label for="email" class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Email Address</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all text-sm" />
                     </div>
                     <div class="col-span-2">
-                        <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Phone Number</label>
-                        <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all text-sm" placeholder="(XXX) XXX-XXXX" />
+                        <label for="phone" class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all text-sm" placeholder="(XXX) XXX-XXXX" />
                     </div>
                 </form>
             </div>
 
             <!-- Step 3: Success -->
             <div id="step-3" class="step-content p-12 text-center hidden">
-                <div class="w-20 h-20 bg-green-50 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
+                <div class="w-20 h-20 bg-green-50 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm" aria-hidden="true">
                     <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                 </div>
                 <h4 class="text-2xl font-semibold text-main mb-2">Request Received</h4>
@@ -222,6 +222,11 @@ import logo from '../assets/logo.jpg';
     });
     body.style.overflow = 'hidden'; 
     renderCalendar();
+
+    // Focus close button for A11y
+    setTimeout(() => {
+        closeBtn?.focus();
+    }, 100);
   }
 
   function closeModal() {
@@ -252,6 +257,18 @@ import logo from '../assets/logo.jpg';
             step?.classList.add('hidden');
         }
     });
+
+    // Update Modal Title and Progress for Screen Readers
+    const stepTitles = ["Choose a Date & Time", "Your Contact Information", "Request Received"];
+    const modalTitle = document.getElementById('modal-title');
+    if (modalTitle) {
+        modalTitle.textContent = `Request Appointment - Step ${currentStep}: ${stepTitles[currentStep - 1]}`;
+    }
+
+    const progressBar = document.getElementById('step-progress-bar');
+    if (progressBar) {
+        progressBar.setAttribute('aria-valuenow', currentStep.toString());
+    }
 
     // Update Dots and Progress Lines
     dots.forEach((dot, index) => {
@@ -318,7 +335,7 @@ import logo from '../assets/logo.jpg';
 
     // Empty spaces
     for (let i = 0; i < firstDay; i++) {
-        calendarGrid.innerHTML += '<div></div>';
+        calendarGrid.innerHTML += '<div aria-hidden="true"></div>';
     }
 
     // Days
@@ -330,8 +347,13 @@ import logo from '../assets/logo.jpg';
 
         const btn = document.createElement('button');
         btn.textContent = d.toString();
+        const formattedDate = new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(date);
+        btn.setAttribute('aria-label', `${formattedDate}${isSelected ? ', currently selected' : ''}`);
         btn.className = `h-10 w-10 text-xs rounded-full transition-all ${isPast || isWeekend ? 'disabled text-gray-200' : 'hover:bg-secondary text-main font-semibold'}`;
-        if (isSelected) btn.classList.add('active');
+        if (isSelected) {
+            btn.classList.add('active');
+            btn.setAttribute('aria-current', 'date');
+        }
         
         if (!isPast && !isWeekend) {
             btn.onclick = () => selectDate(date);
@@ -361,6 +383,8 @@ import logo from '../assets/logo.jpg';
         const isSelected = selectedSlots.some(s => s.time === time && s.date.getTime() === selectedDate.getTime());
         const btn = document.createElement('button');
         btn.textContent = time;
+        btn.role = "option";
+        btn.ariaSelected = isSelected ? "true" : "false";
         btn.className = `time-slot py-2 px-4 rounded-xl border border-gray-200 text-xs font-semibold transition-all ${isSelected ? 'selected' : 'bg-white text-gray-600 hover:border-primary hover:text-primary'}`;
         btn.onclick = () => toggleSlot(time);
         slotsGrid.appendChild(btn);
@@ -394,7 +418,7 @@ import logo from '../assets/logo.jpg';
     selectedSlots.forEach(s => {
         const tag = document.createElement('div');
         tag.className = 'bg-accent/10 text-accent-dark text-[10px] font-semibold px-2 py-1 rounded-lg flex items-center gap-1';
-        tag.innerHTML = `${s.time} <button class="hover:text-red-500">×</button>`;
+        tag.innerHTML = `${s.time} <button class="hover:text-red-500" aria-label="Remove ${s.time}">×</button>`;
         tag.querySelector('button')!.onclick = () => toggleSlot(s.time);
         selectedSlotsList!.appendChild(tag);
     });

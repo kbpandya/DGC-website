@@ -28,9 +28,12 @@ const { title, description = "Danville Gastroenterology Center - Over 30 Years' 
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 	</head>
 	<body class="flex flex-col min-h-screen">
+		<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:bg-white focus:p-4 focus:text-primary focus:font-bold focus:shadow-xl focus:rounded-b-xl focus:left-1/2 focus:-translate-x-1/2">
+			Skip to main content
+		</a>
 		<Header />
 		
-		<main class="flex-grow">
+		<main id="main-content" class="flex-grow outline-none" tabindex="-1">
 			<slot />
 		</main>
 
