@@ -3,6 +3,8 @@ import Layout from '../../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import drPandyaImg from '../../assets/doctors/dr-pandya.webp';
 import drPatelImg from '../../assets/doctors/dr-patel.webp';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout title="About Our Practice" description="Learn about the history and mission of Danville Gastroenterology Center, providing expert digestive health care since 1989.">
@@ -66,7 +68,7 @@ import drPatelImg from '../../assets/doctors/dr-patel.webp';
 
       <div class="flex flex-wrap justify-center gap-12 max-w-5xl mx-auto">
         <!-- Dr. Pandya -->
-        <a href="/about/dr-pandya" class="card p-8 flex flex-col items-center text-center card-hover group w-full lg:w-[calc(50%-1.5rem)]">
+        <a href={`${base}/about/dr-pandya`} class="card p-8 flex flex-col items-center text-center card-hover group w-full lg:w-[calc(50%-1.5rem)]">
             <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-secondary mb-6">
                  <Image src={drPandyaImg} alt="Dr. Bhushan H. Pandya" width={128} height={128} class="w-full h-full object-cover object-top" />
             </div>
@@ -76,7 +78,7 @@ import drPatelImg from '../../assets/doctors/dr-patel.webp';
         </a>
 
         <!-- Dr. Patel -->
-        <a href="/about/dr-patel" class="card p-8 flex flex-col items-center text-center card-hover group w-full lg:w-[calc(50%-1.5rem)]">
+        <a href={`${base}/about/dr-patel`} class="card p-8 flex flex-col items-center text-center card-hover group w-full lg:w-[calc(50%-1.5rem)]">
             <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-secondary mb-6">
                  <Image src={drPatelImg} alt="Dr. Mukesh B. Patel" width={128} height={128} class="w-full h-full object-cover object-top" />
             </div>
