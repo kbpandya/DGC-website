@@ -62,76 +62,88 @@ const billingProtections = [
 
   <section class="py-24 bg-white">
     <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto space-y-24">
+      <div class="grid lg:grid-cols-12 gap-16 max-w-6xl mx-auto">
         
-        <!-- Office Policies -->
-        <div>
-          <h2 class="heading-2 border-b border-gray-100 pb-4">General Policies</h2>
-          <div class="grid gap-12 mt-8">
-            {officePolicies.map(policy => (
-              <div>
-                <h3 class="text-xl font-bold text-primary mb-3">{policy.title}</h3>
-                <p class="text-gray-600 leading-relaxed">{policy.content}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <!-- Rights & Responsibilities -->
-        <div class="grid md:grid-cols-2 gap-16">
+        <!-- Left Column -->
+        <div class="lg:col-span-8 space-y-24">
+          <!-- Office Policies -->
           <div>
-            <h2 class="text-2xl font-bold text-primary mb-8 flex items-center gap-3">
-               <span class="w-2 h-8 bg-accent rounded-full"></span>
-               Patient Rights
-            </h2>
-            <ul class="space-y-4">
-              {patientRights.map(right => (
-                <li class="flex gap-3 text-gray-600 text-sm leading-relaxed">
-                  <span class="text-accent font-bold">✓</span>
-                  {right}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h2 class="text-2xl font-bold text-primary mb-8 flex items-center gap-3">
-               <span class="w-2 h-8 bg-primary rounded-full"></span>
-               Responsibilities
-            </h2>
-            <ul class="space-y-4">
-              {responsibilities.map(item => (
-                <li class="flex gap-3 text-gray-600 text-sm leading-relaxed">
-                  <span class="text-primary font-bold">→</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <!-- Billing -->
-        <div class="bg-gray-50 p-10 rounded-3xl border border-gray-100">
-           <h2 class="heading-3 mb-6">Financial Policies & Protections</h2>
-           <div class="grid md:grid-cols-2 gap-10">
-              {billingProtections.map(item => (
+            <h2 class="heading-2 border-b border-gray-100 pb-4">General Policies</h2>
+            <div class="grid gap-12 mt-8">
+              {officePolicies.map(policy => (
                 <div>
-                  <h4 class="font-bold text-primary mb-2">{item.title}</h4>
-                  <p class="text-sm text-gray-600 leading-relaxed">{item.content}</p>
+                  <h3 class="text-xl font-bold text-primary mb-3">{policy.title}</h3>
+                  <p class="text-gray-600 leading-relaxed">{policy.content}</p>
                 </div>
               ))}
-           </div>
-           <p class="text-xs text-gray-400 mt-8 pt-8 border-t border-gray-200">
-             For more information about your billing protections, visit <a href="https://www.cms.gov/nosurprises" class="underline hover:text-primary transition-colors">www.cms.gov/nosurprises</a>.
-           </p>
+            </div>
+          </div>
+
+          <!-- Rights & Responsibilities -->
+          <div class="grid md:grid-cols-2 gap-12">
+            <div>
+              <h2 class="text-2xl font-bold text-primary mb-8 flex items-center gap-3">
+                <span class="w-2 h-8 bg-accent rounded-full"></span>
+                Patient Rights
+              </h2>
+              <ul class="space-y-4">
+                {patientRights.map(right => (
+                  <li class="flex gap-3 text-gray-600 text-sm leading-relaxed">
+                    <span class="text-accent font-bold">✓</span>
+                    {right}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h2 class="text-2xl font-bold text-primary mb-8 flex items-center gap-3">
+                <span class="w-2 h-8 bg-primary rounded-full"></span>
+                Responsibilities
+              </h2>
+              <ul class="space-y-4">
+                {responsibilities.map(item => (
+                  <li class="flex gap-3 text-gray-600 text-sm leading-relaxed">
+                    <span class="text-primary font-bold">→</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <!-- Billing -->
+          <div class="card p-10 bg-gray-50">
+            <h2 class="heading-3 mb-6">Financial Policies & Protections</h2>
+            <div class="grid md:grid-cols-2 gap-10">
+                {billingProtections.map(item => (
+                  <div>
+                    <h4 class="font-bold text-primary mb-2">{item.title}</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">{item.content}</p>
+                  </div>
+                ))}
+            </div>
+            <p class="text-xs text-gray-400 mt-8 pt-8 border-t border-gray-200">
+              For more information about your billing protections, visit <a href="https://www.cms.gov/nosurprises" class="underline hover:text-primary transition-colors">www.cms.gov/nosurprises</a>.
+            </p>
+          </div>
         </div>
 
-        <!-- Support CTA -->
-        <div class="text-center bg-primary text-white p-12 rounded-3xl shadow-xl">
-          <h3 class="text-2xl font-bold mb-4">Questions about our policies?</h3>
-          <p class="text-blue-100 mb-8">Our staff is available during office hours to provide clarification.</p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-             <a href="tel:4347911152" class="btn-secondary text-primary px-10">Call (434) 791-1152</a>
-             <button class="bg-white/10 hover:bg-white/20 border border-white/20 px-10 py-3 rounded-full transition-all trigger-booking">Book Appointment</button>
+        <!-- Right Column: Sidebar -->
+        <div class="lg:col-span-4">
+          <div class="sticky top-32 space-y-8">
+            <div class="card bg-primary p-8 text-white shadow-xl">
+              <h3 class="text-xl font-bold mb-4">Questions?</h3>
+              <p class="text-blue-100 text-sm mb-6 leading-relaxed">
+                If you have questions about our policies, our staff is available during office hours to provide clarification.
+              </p>
+              <div class="space-y-4">
+                <a href="tel:4347911152" class="flex items-center gap-3 font-bold text-lg hover:text-accent transition-colors">
+                  <span class="bg-white/10 p-2 rounded-lg">📞</span>
+                  (434) 791-1152
+                </a>
+                <button class="w-full btn-secondary text-primary py-3 trigger-booking">Book Appointment</button>
+              </div>
+            </div>
           </div>
         </div>
 

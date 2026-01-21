@@ -35,7 +35,7 @@ const resources = [
     <div class="container mx-auto px-4">
       <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
         {resources.map((item) => (
-          <a href={item.href} class="group bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl hover:border-primary/20 transition-all duration-300 card-hover flex flex-col items-start">
+          <a href={item.href} class="card p-8 card-hover flex flex-col items-start group">
             <div class="w-16 h-16 bg-secondary rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
               <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon}></path></svg>
             </div>
@@ -55,7 +55,7 @@ const resources = [
   <!-- Appointment CTA -->
   <section class="py-24 bg-gray-50 border-y border-gray-100">
     <div class="container mx-auto px-4 text-center">
-      <div class="max-w-3xl mx-auto bg-white p-12 rounded-3xl shadow-lg border border-gray-100">
+      <div class="card max-w-3xl mx-auto p-12">
         <h2 class="heading-2 mb-4">Ready to Schedule?</h2>
         <p class="text-lg text-gray-600 mb-10">
           Our specialists are here to provide the care and answers you need for your digestive health.

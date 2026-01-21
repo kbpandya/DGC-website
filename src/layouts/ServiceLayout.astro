@@ -31,7 +31,7 @@ const currentPath = Astro.url.pathname;
       <!-- Sidebar Navigation (Desktop) -->
       <aside class="hidden lg:block lg:col-span-3">
         <div class="sticky top-32 max-h-[calc(100vh-10rem)] overflow-y-auto pr-2 custom-scrollbar">
-          <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden mb-8">
+          <div class="card overflow-hidden mb-8">
             <div class="bg-gray-50 p-4 border-b border-gray-100">
               <h3 class="text-primary font-bold text-lg">Our Services</h3>
             </div>
@@ -53,7 +53,7 @@ const currentPath = Astro.url.pathname;
           </div>
 
           <!-- Mini CTA -->
-          <div class="bg-primary rounded-xl p-6 text-white text-center shadow-lg">
+          <div class="card bg-primary p-6 text-white text-center shadow-lg">
             <h4 class="font-bold text-xl mb-2">Need an Appointment?</h4>
             <p class="text-blue-100 text-sm mb-6">Our specialists are ready to help.</p>
             <button class="w-full bg-white text-primary font-bold py-3 rounded-lg hover:bg-gray-100 transition-colors trigger-booking">

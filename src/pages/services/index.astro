@@ -29,7 +29,7 @@ import { servicesData } from '../../data/services';
 
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {category.services.map((service) => (
-              <a href={service.href} class="group bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-xl hover:border-primary/20 transition-all duration-300 card-hover flex flex-col items-start h-full">
+              <a href={service.href} class="card p-8 card-hover flex flex-col items-start h-full group">
                 <!-- Widened Icon Container -->
                 <div class="w-16 h-16 bg-secondary rounded-lg flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
                   <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.icon}></path></svg>
