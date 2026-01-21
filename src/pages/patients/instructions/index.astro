@@ -48,7 +48,7 @@ const preps = [
           <div class="flex gap-4">
             <span class="text-2xl" aria-hidden="true">⚠️</span>
             <div>
-              <h3 class="text-xl font-bold text-primary mb-2 mt-0">Crucial Note for All Procedures</h3>
+              <h3 class="text-xl font-semibold text-primary mb-2 mt-0">Crucial Note for All Procedures</h3>
               <p class="text-description leading-relaxed mb-0">
                 If you are receiving sedation for your procedure, <strong>you must have a responsible adult driver</strong> to take you home. Your procedure will be cancelled if you do not have a driver present.
               </p>
@@ -60,12 +60,12 @@ const preps = [
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {preps.map(prep => (
             <div class="card p-8 flex flex-col h-full">
-              <h2 class="text-2xl font-bold text-primary mb-4">{prep.title}</h2>
+              <h2 class="text-2xl font-semibold text-primary mb-4">{prep.title}</h2>
               <p class="text-description text-sm mb-8 flex-grow leading-relaxed">{prep.description}</p>
               
               <div class="space-y-3">
                 {prep.options.map(opt => (
-                  <a href={opt.href} class="flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:bg-secondary/50 hover:text-primary transition-colors group font-bold text-gray-700">
+                  <a href={opt.href} class="flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:bg-secondary/50 hover:text-primary transition-colors group font-semibold text-gray-700">
                     {opt.name}
                     <span class="text-accent-dark group-hover:translate-x-1 transition-transform">↓</span>
                   </a>
@@ -81,23 +81,23 @@ const preps = [
             <h2 class="heading-2">General Preparation Tips</h2>
             <div class="space-y-6">
               <div class="flex gap-4">
-                <div class="text-accent-dark font-bold text-xl">01</div>
+                <div class="text-accent-dark font-semibold text-xl">01</div>
                 <div>
-                  <h4 class="font-bold text-primary">Medication Check</h4>
+                  <h4 class="font-semibold text-primary">Medication Check</h4>
                   <p class="text-description text-sm">Review your medications with our office, especially if you take blood thinners or diabetic medications.</p>
                 </div>
               </div>
               <div class="flex gap-4">
-                <div class="text-accent-dark font-bold text-xl">02</div>
+                <div class="text-accent-dark font-semibold text-xl">02</div>
                 <div>
-                  <h4 class="font-bold text-primary">Clear Liquid Diet</h4>
+                  <h4 class="font-semibold text-primary">Clear Liquid Diet</h4>
                   <p class="text-description text-sm">For colonoscopy, you will need to follow a clear liquid diet the day before. Avoid red or purple dyes.</p>
                 </div>
               </div>
               <div class="flex gap-4">
-                <div class="text-accent-dark font-bold text-xl">03</div>
+                <div class="text-accent-dark font-semibold text-xl">03</div>
                 <div>
-                  <h4 class="font-bold text-primary">Stay Hydrated</h4>
+                  <h4 class="font-semibold text-primary">Stay Hydrated</h4>
                   <p class="text-description text-sm">Drink plenty of clear fluids during your prep to avoid dehydration, as instructed in your prep guide.</p>
                 </div>
               </div>
@@ -105,13 +105,13 @@ const preps = [
           </div>
 
           <div class="card bg-primary p-10 text-white shadow-xl">
-            <h3 class="text-2xl font-bold mb-6">Need Help with Prep?</h3>
+            <h3 class="text-2xl font-semibold mb-6">Need Help with Prep?</h3>
             <p class="text-blue-50 mb-8 leading-relaxed">
               If you have questions about your preparation or are experiencing issues during the process, please don't hesitate to contact our clinical team.
             </p>
             <div class="flex flex-col gap-4">
-              <a href="tel:4347911152" class="text-2xl font-bold hover:text-accent transition-colors text-white">📞 (434) 791-1152</a>
-              <p class="text-xs text-blue-50 uppercase tracking-widest font-bold">Available during office hours</p>
+              <a href="tel:4347911152" class="text-2xl font-semibold hover:text-accent transition-colors text-white">📞 (434) 791-1152</a>
+              <p class="text-xs text-blue-50 uppercase tracking-widest font-semibold">Available during office hours</p>
             </div>
           </div>
         </div>
