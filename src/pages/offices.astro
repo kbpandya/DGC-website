@@ -44,9 +44,9 @@ const locations = [
 
   <section class="py-24 bg-white">
     <div class="container mx-auto px-4">
-      <div class="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
         {locations.map((loc) => (
-          <div class="card overflow-hidden flex flex-col">
+          <div class="card overflow-hidden flex flex-col max-w-lg mx-auto w-full">
             <!-- Map Embed -->
             <div class="h-64 bg-gray-100 relative">
                <iframe 
@@ -59,10 +59,10 @@ const locations = [
                ></iframe>
             </div>
             
-            <div class="p-10 flex-grow">
-              <h2 class="text-3xl font-bold text-primary mb-10">{loc.name}</h2>
+            <div class="p-8 flex-grow">
+              <h2 class="text-2xl font-bold text-primary mb-8">{loc.name}</h2>
               
-              <div class="space-y-10">
+              <div class="space-y-8">
                 <!-- Address -->
                 <div class="flex gap-4">
                   <div class="bg-secondary p-2 rounded-lg text-primary h-fit">
@@ -70,7 +70,7 @@ const locations = [
                   </div>
                   <div>
                     <h4 class="font-bold text-gray-900 text-sm uppercase tracking-wider mb-1">Address</h4>
-                    <p class="text-gray-600 leading-relaxed">{loc.address}<br/>{loc.city}</p>
+                    <p class="text-gray-600 leading-relaxed text-sm">{loc.address}<br/>{loc.city}</p>
                   </div>
                 </div>
 
@@ -81,7 +81,7 @@ const locations = [
                   </div>
                   <div>
                     <h4 class="font-bold text-gray-900 text-sm uppercase tracking-wider mb-1">Phone</h4>
-                    <div class="text-gray-600 space-y-1">
+                    <div class="text-gray-600 space-y-1 text-sm">
                       <p><a href={`tel:${loc.phone.replace(/\D/g,'')}`} class="hover:text-primary transition-colors font-medium">{loc.phone}</a></p>
                       {loc.tollFree && (
                         <p class="flex items-center gap-2">
@@ -101,7 +101,7 @@ const locations = [
                     </div>
                     <div>
                       <h4 class="font-bold text-gray-900 text-sm uppercase tracking-wider mb-1">Fax</h4>
-                      <p class="text-gray-600">{loc.fax}</p>
+                      <p class="text-gray-600 text-sm">{loc.fax}</p>
                     </div>
                   </div>
                 )}
@@ -127,8 +127,8 @@ const locations = [
             </div>
 
             <!-- Footer CTA within Card -->
-            <div class="px-10 py-6 bg-gray-50 border-t border-gray-100">
-               <button class="w-full btn-primary trigger-booking">Request Appointment at this Location</button>
+            <div class="px-8 py-6 bg-gray-50 border-t border-gray-100">
+               <button class="w-full btn-primary trigger-booking py-3 text-sm">Request Appointment</button>
             </div>
           </div>
         ))}
