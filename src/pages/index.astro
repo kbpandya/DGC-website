@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
+import drPandyaImg from '../assets/doctors/dr-pandya.webp';
+import drPatelImg from '../assets/doctors/dr-patel.webp';
 ---
 
 <Layout title="Home">
@@ -63,6 +65,10 @@ import { Image } from 'astro:assets';
                 alt="Danville Gastroenterology Center Team" 
                 width={800}
                 height={600}
+                widths={[400, 800, 1200]}
+                sizes="(max-width: 768px) 100vw, 800px"
+                decoding="async"
+                loading="lazy"
                 class="w-full h-auto object-cover" 
             />
         </div>
@@ -139,8 +145,8 @@ import { Image } from 'astro:assets';
             </div>
             <h3 class="heading-3">{service.title}</h3>
             <p class="text-gray-600 mb-8 flex-grow leading-relaxed">{service.desc}</p>
-            <a href="/services" class="text-primary font-semibold hover:text-accent flex items-center gap-2 group-hover:translate-x-1 transition-all">
-                Read More <span class="text-xl">›</span>
+            <a href="/services" class="text-primary font-semibold hover:text-accent flex items-center gap-2 transition-all group/link">
+                Read More <span class="text-xl group-hover/link:translate-x-1 transition-transform">›</span>
             </a>
           </div>
         ))}
@@ -167,18 +173,23 @@ import { Image } from 'astro:assets';
         <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 flex flex-col md:flex-row gap-8 items-center md:items-start card-hover">
             <div class="w-32 h-32 md:w-40 md:h-40 flex-shrink-0 rounded-full overflow-hidden border-4 border-secondary">
                  <Image 
-                   src="https://placehold.co/400x400/004d66/FFFFFF?text=Dr.+Pandya" 
+                   src={drPandyaImg} 
                    alt="Dr. Bhushan H. Pandya" 
                    width={160} 
-                   height={160} 
-                   class="w-full h-full object-cover" 
+                   height={160}
+                   widths={[160, 320, 480]}
+                   sizes="(max-width: 768px) 128px, 160px"
+                   decoding="async"
+                   class="w-full h-full object-cover object-top" 
                  />
             </div>
             <div class="text-center md:text-left">
                 <h3 class="text-2xl font-semibold text-primary mb-1 font-display">Dr. Bhushan H. Pandya</h3>
-                <p class="text-accent font-medium mb-3 uppercase tracking-wide text-sm">Gastroenterologist</p>
-                <p class="text-gray-600 text-sm mb-6 leading-relaxed">Board certified with decades of experience treating complex GI conditions. Dedicated to patient education and comfort.</p>
-                <a href="/about/dr-pandya" class="text-primary font-semibold hover:underline">View Profile</a>
+                <p class="text-accent font-medium mb-6 uppercase tracking-wide text-sm">Gastroenterologist</p>
+                <a href="/about/dr-pandya" class="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors group/link">
+                  View Full Profile 
+                  <span class="transform group-hover/link:translate-x-1 transition-transform">&rarr;</span>
+                </a>
             </div>
         </div>
 
@@ -186,18 +197,23 @@ import { Image } from 'astro:assets';
         <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 flex flex-col md:flex-row gap-8 items-center md:items-start card-hover">
             <div class="w-32 h-32 md:w-40 md:h-40 flex-shrink-0 rounded-full overflow-hidden border-4 border-secondary">
                  <Image 
-                   src="https://placehold.co/400x400/004d66/FFFFFF?text=Dr.+Patel" 
+                   src={drPatelImg} 
                    alt="Dr. Mukesh B. Patel" 
                    width={160} 
-                   height={160} 
-                   class="w-full h-full object-cover" 
+                   height={160}
+                   widths={[160, 320, 480]}
+                   sizes="(max-width: 768px) 128px, 160px"
+                   decoding="async"
+                   class="w-full h-full object-cover object-top" 
                  />
             </div>
             <div class="text-center md:text-left">
                 <h3 class="text-2xl font-semibold text-primary mb-1 font-display">Dr. Mukesh B. Patel</h3>
-                <p class="text-accent font-medium mb-3 uppercase tracking-wide text-sm">Gastroenterologist</p>
-                <p class="text-gray-600 text-sm mb-6 leading-relaxed">Specializing in advanced endoscopic procedures. Passionate about preventative care and early detection.</p>
-                <a href="/about/dr-patel" class="text-primary font-semibold hover:underline">View Profile</a>
+                <p class="text-accent font-medium mb-6 uppercase tracking-wide text-sm">Gastroenterologist</p>
+                <a href="/about/dr-patel" class="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors group/link">
+                  View Full Profile 
+                  <span class="transform group-hover/link:translate-x-1 transition-transform">&rarr;</span>
+                </a>
             </div>
         </div>
       </div>
