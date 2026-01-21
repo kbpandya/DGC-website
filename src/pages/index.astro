@@ -3,46 +3,13 @@ import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import drPandyaImg from '../assets/doctors/dr-pandya.webp';
 import drPatelImg from '../assets/doctors/dr-patel.webp';
+import heroIllustration from '../assets/hero-illustration.svg';
 import { allServices } from '../data/services';
-
-const highlightedServices = allServices.filter(s => 
-  ['Colonoscopy', 'Upper Endoscopy', 'Liver Disease'].includes(s.title)
-);
----
-
-<Layout title="Home">
-  <!-- Hero Section -->
-  <section class="relative bg-primary text-white overflow-hidden min-h-[85vh] flex items-center">
-    <!-- Background Image with Modern Gradient Overlay -->
-    <div class="absolute inset-0 z-0">
-        <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-primary)] via-[var(--color-primary)]/80 to-transparent z-10"></div>
-        <div class="absolute inset-0 bg-[url('https://placehold.co/1920x1080/004d66/FFFFFF?text=Medical+Care')] bg-cover bg-center mix-blend-overlay opacity-50"></div>
-    </div>
-    
-    <div class="relative z-20 container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
-      <div class="animate-fade-in-up">
-        <span class="inline-block py-1 px-3 rounded-full bg-accent/10 text-accent-dark border border-accent/20 text-sm font-semibold mb-6 tracking-wide uppercase">
-          Trusted Since 1995
-        </span>
-        <h1 class="heading-1 mb-6 text-shadow">
-          Advanced Digestive <br/>
-          <span class="text-accent-dark">Health Care</span>
-        </h1>
-        <p class="text-lg md:text-xl mb-10 text-gray-100 max-w-lg leading-relaxed opacity-90">
-          State-of-the-art gastroenterology services delivered with compassion. We are dedicated to your long-term health and comfort.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <button class="btn-primary text-center trigger-booking">
-            Book Appointment
-          </button>
-          <a href="/services" class="btn-secondary text-center">
-            Explore Services
-          </a>
-        </div>
-      </div>
+...
       <!-- Hero Image / Visual Interest -->
       <div class="hidden md:block relative animate-fade-in-up delay-200">
-         <div class="absolute -inset-4 bg-accent/20 rounded-full blur-3xl opacity-30"></div>
+         <div class="absolute -inset-4 bg-accent/20 rounded-full blur-3xl opacity-20"></div>
+         <Image src={heroIllustration} alt="Health and Precision Illustration" class="relative z-10 w-full h-auto drop-shadow-2xl" />
       </div>
     </div>
   </section>
