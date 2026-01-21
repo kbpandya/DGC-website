@@ -3,41 +3,69 @@ import Layout from '../layouts/Layout.astro';
 
 const testimonials = [
   {
-    quote: "Dr Patel and the nurse staff were awesome. Thank you for your kindness.",
-    author: "Elizabeth P"
+    quote: "Dr. Pandya and entire staff were Top Notch.. Everyone was very Friendly, Efficient, Professional and concerned about my Health.. Dr. Pandya called me at Home the next day and asked me how I was feeling, etc. Highly Recommend!",
+    author: "Roy Evans J.",
+    date: "6/5/2024"
   },
   {
-    quote: "Super wonderful procedure done everything was top quality totally friendly environment I would go there any time excellent treatment had a great time and would recommend other people to go",
-    author: "Glenn E. B."
+    quote: "Dr Patel and staff at both the office and endoscopy suite are top notch…it has the big city level of care and professionalism that is a pleasant surprise locally! Would 10/10 recommend for all your Gastroenterology needs.",
+    author: "Micah P.",
+    date: "9/26/2024"
   },
   {
-    quote: "Excellent place to go to get your procedures done Dr Patel and Dr Pandya are wonderful doctors.",
-    author: "Bonnie B."
+    quote: "Dr Patel and Pandya are the best. Both have taken care of my brother for 27 years. Both take pride in their work and patients. I have been a patient for 30 years. I wouldn't trust anyone else in this area.",
+    author: "Beatrice C.",
+    date: "4/25/2023"
   },
   {
-    quote: "The staff is caring, efficient, and professional.",
-    author: "Gary"
+    quote: "I would like to thank Dr. Patel and all his staff for such professional and kind service provided to me during the procedure. You guys made the whole thing from beginning to end very smooth, comfortable and easy.",
+    author: "David U.",
+    date: "4/21/2022"
+  },
+  {
+    quote: "My experience was great from check in to check out. The nurses were friendly and explained everything. Dr. Pandya started my IV and I will say the best one I have ever had, never felt a thing. Everyone made sure I was comfortable.",
+    author: "Debra K.",
+    date: "2/17/2025"
+  },
+  {
+    quote: "Everyone was very nice and made a not so pleasant procedure much better than expected! Dr Patel is great, he has excellent bedside manner and always answers all questions and explains everything very well, and always with a smile!",
+    author: "Kimberly S.",
+    date: "8/15/2024"
+  },
+  {
+    quote: "I was referred by the VA for a routine procedure. I was very pleased with the level of care I received from Dr. Pandya and his team. They were patient, considerate, and kept me informed throughout the entire process.",
+    author: "A L B.",
+    date: "1/27/2023"
+  },
+  {
+    quote: "I recently had a procedure there. The new Procedure Center is very nice, clean, and spacious. Dr. Pandya is a great physician and his staff took good care of me and kept me informed about everything. I think any patient will be in good hands.",
+    author: "Cynthia H.",
+    date: "12/16/2021"
+  },
+  {
+    quote: "Dr. Patel is an awesome Gastroenterologist. He listens...he's straight up about your care..what you need to do and what he will do. It's great when you can honestly trust your provider.",
+    author: "Mertice A.",
+    date: "4/29/2025"
   },
   {
     quote: "Once my husband went back for the colonoscopy the process went quickly. Everyone was super nice and friendly. The doctor came in and talked to us and my husband was ready to leave about 30 minutes after the procedure.",
-    author: "Kristina A."
+    author: "Kristina A.",
+    date: "5/1/2025"
   },
   {
-    quote: "Amazing staff, including new training staff. Procedure was wonderful. No issues. Even took out my nose ring for me",
-    author: "Ilesha D."
+    quote: "Very professional and kind staff; Dr. Pandya was very thorough in our discussions pre and post procedure. Highly recommend this practice!",
+    author: "Michael D.",
+    date: "3/4/2025"
   },
   {
-    quote: "Everyone was very nice. I love Dr. Pandya.",
-    author: "Rebecca B."
-  },
-  {
-    quote: "Professional and friendly staff",
-    author: "Linda C."
+    quote: "Dr Patel and the nurse staff were awesome. Thank you for your kindness.",
+    author: "Elizabeth P.",
+    date: "12/29/2025"
   }
 ];
 ---
 
-<Layout title="Patient Testimonials" description="Read testimonials from patients of Danville Gastroenterology Center. Our 4.2-star average reflects our commitment to compassionate care.">
+<Layout title="Patient Testimonials" description="Read testimonials from patients of Danville Gastroenterology Center. Our 4.2-star average reflects our commitment to compassionate, expert care in Danville, VA.">
   <!-- Hero Section -->
   <section class="bg-secondary pt-40 pb-20 text-center relative overflow-hidden">
     <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
@@ -65,8 +93,13 @@ const testimonials = [
       <div class="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto">
         {testimonials.map((t) => (
           <div class="card p-8 italic text-gray-600 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-1.5rem)] max-w-md flex flex-col justify-between">
-            <p class="mb-6 leading-relaxed">"{t.quote}"</p>
-            <span class="font-bold text-primary not-italic border-t border-gray-100 pt-4 block text-sm">— {t.author}</span>
+            <div>
+              <p class="mb-6 leading-relaxed">"{t.quote}"</p>
+            </div>
+            <div class="border-t border-gray-100 pt-4 mt-auto">
+              <span class="font-bold text-primary not-italic block text-sm">— {t.author}</span>
+              <span class="text-xs text-gray-400 not-italic block mt-1">{t.date}</span>
+            </div>
           </div>
         ))}
       </div>
