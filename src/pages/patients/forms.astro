@@ -1,34 +1,142 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+const officePolicies = [
+  {
+    title: "Appointments & Cancellations",
+    content: "Patients are seen by appointment. Please bring all medications, insurance information, co-pays, and a valid ID to every visit. There is a **$25 charge** for cancellations made with less than 24 hours' notice."
+  },
+  {
+    title: "Prescription Refills",
+    content: "Please request refills at least one week in advance. Refills are not processed on Fridays, weekends, or holidays. Generally, refills are not provided if you haven't been seen within the past year."
+  },
+  {
+    title: "Telephone Calls & After Hours",
+    content: "Our staff is trained to handle calls efficiently. For non-urgent matters after hours, call (434) 791-1152. For emergencies, always call 911 immediately."
+  },
+  {
+    title: "Confidentiality",
+    content: "Your medical records are strictly confidential. We will not release information to employers, friends, or relatives without your explicit written permission."
+  }
+];
+
+const billingProtections = [
+  {
+    title: "Surprise Billing Protections",
+    content: "You are protected from balance billing when treated by an out-of-network provider at an in-network facility. You are only responsible for your in-network cost-sharing amounts."
+  },
+  {
+    title: "Good Faith Estimates",
+    content: "You have the right to receive a 'Good Faith Estimate' explaining how much your medical care will cost before you receive services."
+  }
+];
 ---
 
-<Layout title="Forms & Policies" description="Access patient forms and office policies for Danville Gastroenterology Center.">
-  <section class="bg-secondary pt-40 pb-20">
-    <div class="container mx-auto px-4">
-      <h1 class="heading-1 text-primary">Forms & Policies</h1>
+<Layout title="Forms & Office Policies" description="Access patient forms and review office policies for Danville Gastroenterology Center.">
+  <section class="bg-secondary pt-40 pb-20 relative overflow-hidden">
+    <div class="container mx-auto px-4 relative z-10">
+      <h1 class="heading-1 text-primary">Forms & Office Policies</h1>
+      <p class="text-xl text-gray-600 max-w-2xl">
+        Review our guidelines and complete necessary documentation to ensure a smooth visit.
+      </p>
     </div>
   </section>
 
   <section class="py-24 bg-white">
-    <div class="container mx-auto px-4 max-w-4xl">
-      <h2 class="heading-2">Patient Forms</h2>
-      <p class="text-gray-600 mb-8">Please download, print, and complete the following forms before your appointment to expedite your check-in process.</p>
-      
-      <div class="space-y-4">
-        <div class="p-6 bg-gray-50 rounded-xl border border-gray-100 flex justify-between items-center">
-          <div>
-            <h4 class="font-bold text-primary">New Patient Registration</h4>
-            <p class="text-sm text-gray-500">Required for all first-time patients.</p>
+    <div class="container mx-auto px-4">
+      <div class="grid lg:grid-cols-12 gap-16">
+        
+        <!-- Left Column: Forms & Policies -->
+        <div class="lg:col-span-8">
+          <!-- Forms Download -->
+          <div class="mb-20">
+            <h2 class="heading-2">Patient Forms</h2>
+            <p class="text-gray-600 mb-8">Download and complete these forms prior to your appointment to expedite your check-in.</p>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <a href="#" class="flex items-center justify-between p-6 bg-gray-50 rounded-xl border border-gray-100 hover:border-accent transition-colors group">
+                <div class="flex items-center gap-4">
+                  <div class="bg-white p-3 rounded-lg text-accent shadow-sm">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                  </div>
+                  <span class="font-bold text-primary">New Patient Packet</span>
+                </div>
+                <span class="text-xs font-bold text-accent uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">PDF</span>
+              </a>
+              <a href="#" class="flex items-center justify-between p-6 bg-gray-50 rounded-xl border border-gray-100 hover:border-accent transition-colors group">
+                <div class="flex items-center gap-4">
+                  <div class="bg-white p-3 rounded-lg text-accent shadow-sm">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                  </div>
+                  <span class="font-bold text-primary">Records Release</span>
+                </div>
+                <span class="text-xs font-bold text-accent uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">PDF</span>
+              </a>
+            </div>
           </div>
-          <button class="text-accent font-semibold hover:underline">Download PDF</button>
-        </div>
-        <div class="p-6 bg-gray-50 rounded-xl border border-gray-100 flex justify-between items-center">
-          <div>
-            <h4 class="font-bold text-primary">Medical History Questionnaire</h4>
-            <p class="text-sm text-gray-500">Provide details about your health history.</p>
+
+          <!-- Office Policies -->
+          <div class="mb-20">
+            <h2 class="heading-2">Office Policies</h2>
+            <div class="space-y-8">
+              {officePolicies.map(policy => (
+                <div class="border-b border-gray-100 pb-8 last:border-0">
+                  <h3 class="text-xl font-bold text-primary mb-3">{policy.title}</h3>
+                  <p class="text-gray-600 leading-relaxed prose prose-primary">
+                    {policy.content}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
-          <button class="text-accent font-semibold hover:underline">Download PDF</button>
+
+          <!-- Billing Protections -->
+          <div>
+            <div class="bg-secondary/30 p-8 rounded-3xl border border-primary/10">
+              <h2 class="heading-3 mb-6">Financial Rights & Billing</h2>
+              <div class="space-y-8">
+                {billingProtections.map(item => (
+                  <div>
+                    <h3 class="text-lg font-bold text-primary mb-2">{item.title}</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">{item.content}</p>
+                  </div>
+                ))}
+                <p class="text-xs text-gray-400 mt-6">
+                  For questions about your billing protections, visit <a href="https://www.cms.gov/nosurprises" class="underline hover:text-primary">www.cms.gov/nosurprises</a> or call our office.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- Right Column: Sidebar -->
+        <div class="lg:col-span-4">
+          <div class="sticky top-32 space-y-8">
+            <div class="bg-primary rounded-3xl p-8 text-white shadow-xl">
+              <h3 class="text-xl font-bold mb-4">Questions?</h3>
+              <p class="text-blue-100 text-sm mb-6 leading-relaxed">
+                If you have questions about our policies or need assistance with forms, our staff is happy to help.
+              </p>
+              <div class="space-y-4">
+                <a href="tel:4347911152" class="flex items-center gap-3 font-bold text-lg hover:text-accent transition-colors">
+                  <span class="bg-white/10 p-2 rounded-lg">📞</span>
+                  (434) 791-1152
+                </a>
+                <button class="w-full btn-secondary text-primary py-3 trigger-booking">Book Appointment</button>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 rounded-3xl p-8 border border-gray-100">
+              <h3 class="text-lg font-bold text-primary mb-4">Patient Portal</h3>
+              <p class="text-gray-600 text-sm mb-6">
+                Manage your appointments, request refills, and view records online.
+              </p>
+              <a href="#" class="text-accent font-bold text-sm uppercase tracking-wider flex items-center gap-2 group">
+                Login to Portal <span class="group-hover:translate-x-1 transition-transform">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>

@@ -1,30 +1,121 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+
+const preps = [
+  {
+    title: "Colonoscopy Preparation",
+    description: "Crucial instructions for bowel cleansing before your colonoscopy. Choose the option prescribed by your doctor.",
+    options: [
+      { name: "Option A Prep", href: "#" },
+      { name: "Option B Prep", href: "#" },
+      { name: "Option C Prep", href: "#" }
+    ]
+  },
+  {
+    title: "Upper Endoscopy (EGD)",
+    description: "Preparation for examining the upper digestive tract, including fasting requirements.",
+    options: [
+      { name: "EGD Patient Prep", href: "#" }
+    ]
+  },
+  {
+    title: "Specialized Procedures",
+    description: "Instructions for advanced diagnostic tests like Capsule Endoscopy.",
+    options: [
+      { name: "Capsule Endoscopy (CapsoCam)", href: "#" },
+      { name: "Enteroscopy/Sigmoidoscopy Prep", href: "#" }
+    ]
+  }
+];
 ---
 
-<Layout title="Procedure Instructions" description="Preparation instructions for procedures at Danville Gastroenterology Center.">
-  <section class="bg-secondary pt-40 pb-20">
-    <div class="container mx-auto px-4">
+<Layout title="Procedure Preparation Instructions" description="Download preparation instructions for Colonoscopy, EGD, Capsule Endoscopy, and other procedures at Danville Gastroenterology Center.">
+  <section class="bg-secondary pt-40 pb-20 relative overflow-hidden">
+    <div class="container mx-auto px-4 relative z-10">
       <h1 class="heading-1 text-primary">Procedure Instructions</h1>
+      <p class="text-xl text-gray-600 max-w-2xl">
+        Proper preparation is the most important step for an accurate and successful procedure.
+      </p>
     </div>
   </section>
 
   <section class="py-24 bg-white">
-    <div class="container mx-auto px-4 max-w-4xl">
-      <h2 class="heading-2">Preparing for Your Procedure</h2>
-      <p class="text-gray-600 mb-8">Proper preparation is essential for a successful and accurate procedure. Please follow the instructions provided for your specific test.</p>
-      
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="p-6 bg-gray-50 rounded-xl border border-gray-100">
-          <h3 class="font-bold text-primary mb-2">Colonoscopy Prep</h3>
-          <p class="text-sm text-gray-500 mb-4">Instructions for bowel preparation before a colonoscopy.</p>
-          <a href="/services/colonoscopy#what-to-expect" class="text-accent font-semibold hover:underline">Read More &rarr;</a>
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        
+        <!-- Important Warning -->
+        <div class="bg-accent/10 border-l-4 border-accent p-8 rounded-r-2xl mb-16">
+          <div class="flex gap-4">
+            <span class="text-2xl">⚠️</span>
+            <div>
+              <h3 class="text-lg font-bold text-primary mb-2">Crucial Note for All Procedures</h3>
+              <p class="text-gray-700 leading-relaxed">
+                If you are receiving sedation for your procedure, **you must have a responsible adult driver** to take you home. Your procedure will be cancelled if you do not have a driver present.
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="p-6 bg-gray-50 rounded-xl border border-gray-100">
-          <h3 class="font-bold text-primary mb-2">Upper Endoscopy Prep</h3>
-          <p class="text-sm text-gray-500 mb-4">Preparation instructions for an upper endoscopy (EGD).</p>
-          <a href="/services/upper-endoscopy" class="text-accent font-semibold hover:underline">Read More &rarr;</a>
+
+        <!-- Prep Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {preps.map(prep => (
+            <div class="bg-white border border-gray-100 rounded-3xl p-8 shadow-sm flex flex-col h-full">
+              <h2 class="text-2xl font-bold text-primary mb-4">{prep.title}</h2>
+              <p class="text-gray-600 text-sm mb-8 flex-grow leading-relaxed">{prep.description}</p>
+              
+              <div class="space-y-3">
+                {prep.options.map(opt => (
+                  <a href={opt.href} class="flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:bg-secondary/50 hover:text-primary transition-colors group font-semibold text-gray-700">
+                    {opt.name}
+                    <span class="text-accent group-hover:translate-x-1 transition-transform">↓</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
+
+        <!-- General FAQs -->
+        <div class="mt-24 grid md:grid-cols-2 gap-16 items-start">
+          <div>
+            <h2 class="heading-2">General Preparation Tips</h2>
+            <div class="space-y-6">
+              <div class="flex gap-4">
+                <div class="text-accent font-bold text-xl">01</div>
+                <div>
+                  <h4 class="font-bold text-primary">Medication Check</h4>
+                  <p class="text-gray-600 text-sm">Review your medications with our office, especially if you take blood thinners or diabetic medications.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="text-accent font-bold text-xl">02</div>
+                <div>
+                  <h4 class="font-bold text-primary">Clear Liquid Diet</h4>
+                  <p class="text-gray-600 text-sm">For colonoscopy, you will need to follow a clear liquid diet the day before. Avoid red or purple dyes.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="text-accent font-bold text-xl">03</div>
+                <div>
+                  <h4 class="font-bold text-primary">Stay Hydrated</h4>
+                  <p class="text-gray-600 text-sm">Drink plenty of clear fluids during your prep to avoid dehydration, as instructed in your prep guide.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-primary rounded-3xl p-10 text-white shadow-xl">
+            <h3 class="text-2xl font-bold mb-6">Need Help with Prep?</h3>
+            <p class="text-blue-100 mb-8 leading-relaxed">
+              If you have questions about your preparation or are experiencing issues during the process, please don't hesitate to contact our clinical team.
+            </p>
+            <div class="flex flex-col gap-4">
+              <a href="tel:4347911152" class="text-2xl font-bold hover:text-accent transition-colors">📞 (434) 791-1152</a>
+              <p class="text-xs text-blue-200 uppercase tracking-widest font-bold">Available during office hours</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>

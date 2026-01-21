@@ -1,38 +1,78 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
+
+const resources = [
+  {
+    title: "Forms & Office Policies",
+    description: "Prepare for your visit by reviewing our office policies and downloading necessary patient forms.",
+    href: "/patients/forms",
+    icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+  },
+  {
+    title: "Procedure Instructions",
+    description: "Step-by-step preparation guides for Colonoscopy, EGD, and other diagnostic procedures.",
+    href: "/patients/instructions",
+    icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+  },
+  {
+    title: "Rights & Responsibilities",
+    description: "Learn about your rights as a patient and our commitment to providing safe, respectful care.",
+    href: "/patients/rights",
+    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+  }
+];
 ---
 
-<Layout title="Patient Center" description="Resources for patients of Danville Gastroenterology Center, including forms, policies, and instructions.">
-  <section class="bg-secondary pt-40 pb-20">
-    <div class="container mx-auto px-4">
-      <h1 class="heading-1 text-primary">Patient Center</h1>
+<Layout title="Patient Center" description="Resources for patients of Danville Gastroenterology Center. Access forms, procedure instructions, and learn about your rights.">
+  <!-- Hero Section -->
+  <section class="bg-secondary pt-40 pb-20 relative overflow-hidden text-center">
+    <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <span class="text-accent font-bold tracking-wider uppercase text-sm mb-2 block">Patient Resources</span>
+      <h1 class="heading-1 text-primary mb-6">Patient Center</h1>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Everything you need to prepare for your appointment and manage your digestive health care with us.
+      </p>
     </div>
   </section>
 
+  <!-- Resource Grid -->
   <section class="py-24 bg-white">
     <div class="container mx-auto px-4">
-      <div class="grid md:grid-cols-3 gap-8">
-        <a href="/patients/forms" class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all card-hover group">
-          <div class="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-          </div>
-          <h3 class="heading-3">Forms & Policies</h3>
-          <p class="text-gray-600">Download and complete patient forms before your visit.</p>
-        </a>
-        <a href="/patients/instructions" class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all card-hover group">
-          <div class="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-          </div>
-          <h3 class="heading-3">Procedure Instructions</h3>
-          <p class="text-gray-600">Important information on how to prepare for your procedure.</p>
-        </a>
-        <a href="/patients/rights" class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all card-hover group">
-          <div class="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-          </div>
-          <h3 class="heading-3">Rights & Responsibilities</h3>
-          <p class="text-gray-600">Understanding your rights and our responsibilities to you.</p>
-        </a>
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {resources.map((item) => (
+          <a href={item.href} class="group bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl hover:border-primary/20 transition-all duration-300 card-hover flex flex-col items-start">
+            <div class="w-16 h-16 bg-secondary rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon}></path></svg>
+            </div>
+            <h3 class="heading-3 group-hover:text-accent transition-colors">{item.title}</h3>
+            <p class="text-gray-600 mb-8 flex-grow leading-relaxed">
+              {item.description}
+            </p>
+            <span class="text-primary font-bold text-sm uppercase tracking-wide flex items-center gap-2 group/link">
+              Access Details <span class="text-lg transform group-hover:translate-x-1 transition-transform">›</span>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Patient Portal CTA -->
+  <section class="py-24 bg-gray-50 border-y border-gray-100">
+    <div class="container mx-auto px-4 text-center">
+      <div class="max-w-3xl mx-auto bg-white p-12 rounded-3xl shadow-lg border border-gray-100">
+        <h2 class="heading-2 mb-4">Online Patient Portal</h2>
+        <p class="text-lg text-gray-600 mb-10">
+          Access your medical records, request prescription refills, and communicate with our staff securely online.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#" class="btn-primary py-4 px-10">Access Patient Portal</a>
+          <button class="btn-secondary py-4 px-10 trigger-booking">Request Appointment</button>
+        </div>
+        <p class="mt-8 text-sm text-gray-400 italic">
+          For medical emergencies, please call 911 or go to the nearest emergency room.
+        </p>
       </div>
     </div>
   </section>
