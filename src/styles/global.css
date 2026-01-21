@@ -7,7 +7,7 @@
   --color-primary-light: #007a99;
   --color-secondary: #e6f7fa;
   --color-accent: #ea580c; /* 4.5:1 - AA. Used for buttons/large elements */
-  --color-accent-dark: #c2410c; /* 7.1:1 - AAA. Used for important text/links */
+  --color-accent-dark: #c2410c; /* 7.1:1 - AAA. Hue-matched to accent for text/links */
   
   /* Text Colors */
   --color-text-main: #111827; /* 15.8:1 - AAA */
