@@ -5,47 +5,143 @@ import logo from '../assets/logo.jpg';
 
 <div id="booking-modal" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
   <!-- Backdrop -->
-  <div class="fixed inset-0 bg-gray-900/75 backdrop-blur-sm transition-opacity opacity-0" id="booking-backdrop"></div>
+  <div class="fixed inset-0 bg-gray-900/80 backdrop-blur-sm transition-opacity opacity-0" id="booking-backdrop"></div>
 
   <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
     <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
       
       <!-- Modal Panel -->
-      <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" id="booking-panel">
+      <div class="relative transform overflow-hidden rounded-3xl bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-4xl opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" id="booking-panel">
         
         <!-- Header -->
-        <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 border-b border-gray-100 flex justify-between items-center">
+        <div class="bg-white px-6 py-4 border-b border-gray-100 flex justify-between items-center relative z-20">
             <div class="flex items-center gap-3">
-                 <Image src={logo} alt="Logo" class="h-12 w-auto object-contain" />
-                 <h3 class="text-lg font-semibold leading-6 text-main font-display" id="modal-title">Request Appointment</h3>
+                 <Image src={logo} alt="Logo" class="h-10 w-auto object-contain" />
+                 <h3 class="text-lg font-bold text-main font-display" id="modal-title">Request Appointment</h3>
             </div>
-            <button type="button" id="close-booking-btn" class="rounded-md bg-white text-description hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+            <button type="button" id="close-booking-btn" class="rounded-full p-2 text-description hover:bg-gray-100 hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary">
               <span class="sr-only">Close</span>
-              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
         </div>
 
-        <!-- Iframe Container -->
-        <div class="bg-white h-[650px] w-full relative">
-             <div class="absolute inset-0 flex items-center justify-center text-gray-400 text-sm z-0">
-                Loading scheduling system...
-             </div>
-             <!-- The actual widget iframe -->
-             <iframe 
-                src="https://www.hibuappointments.com/book/iframe/111406166?lang=en" 
-                class="absolute inset-0 w-full h-full z-10 border-0"
-                allow="camera; microphone; autoplay; encrypted-media;"
-                title="Appointment Scheduling Widget"
-                id="booking-iframe"
-            ></iframe>
+        <!-- Custom Booking Flow -->
+        <div class="bg-white min-h-[500px] flex flex-col relative" id="booking-flow-container">
+            
+            <!-- Step Progress -->
+            <div class="px-8 pt-6">
+                <div class="flex items-center justify-between max-w-xs mx-auto">
+                    <div class="step-indicator active w-3 h-3 rounded-full bg-accent" id="step-dot-1"></div>
+                    <div class="h-0.5 flex-grow bg-gray-100 mx-2"></div>
+                    <div class="step-indicator w-3 h-3 rounded-full bg-gray-200" id="step-dot-2"></div>
+                    <div class="h-0.5 flex-grow bg-gray-100 mx-2"></div>
+                    <div class="step-indicator w-3 h-3 rounded-full bg-gray-200" id="step-dot-3"></div>
+                </div>
+            </div>
+
+            <!-- Step 1: Date & Time -->
+            <div id="step-1" class="step-content p-8 pt-4 block">
+                <div class="text-center mb-8">
+                    <h4 class="text-xl font-bold text-primary">Choose a Date & Time</h4>
+                    <p class="text-description text-sm mt-1">Select your preferred date and up to 3 time slots.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <!-- Calendar Side -->
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <h5 id="current-month-display" class="font-bold text-main uppercase tracking-widest text-sm">January 2026</h5>
+                            <div class="flex gap-2">
+                                <button id="prev-month" class="p-1 rounded hover:bg-gray-100 text-gray-400 hover:text-primary transition-colors">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                                </button>
+                                <button id="next-month" class="p-1 rounded hover:bg-gray-100 text-gray-400 hover:text-primary transition-colors">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7-7"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-7 text-center text-[10px] font-bold text-gray-400 uppercase mb-2">
+                            <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                        </div>
+                        <div id="calendar-grid" class="grid grid-cols-7 gap-1">
+                            <!-- Days generated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Slots Side -->
+                    <div id="slots-container" class="opacity-50 pointer-events-none transition-opacity">
+                        <div class="flex items-center justify-between mb-4">
+                            <h5 id="selected-date-display" class="font-bold text-main text-sm">Select a date first</h5>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3" id="time-slots-grid">
+                            <!-- Slots generated by JS -->
+                        </div>
+                        <div class="mt-6 p-4 bg-secondary/30 rounded-xl">
+                            <p class="text-[10px] uppercase font-bold text-primary tracking-widest mb-2">Selected Slots (<span id="slot-count">0</span>/3)</p>
+                            <div id="selected-slots-list" class="flex flex-wrap gap-2 min-h-[20px]">
+                                <span class="text-xs text-gray-400 italic">No slots selected</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Contact Info -->
+            <div id="step-2" class="step-content p-8 pt-4 hidden">
+                <div class="text-center mb-8">
+                    <h4 class="text-xl font-bold text-primary">Your Contact Information</h4>
+                    <p class="text-description text-sm mt-1">We'll use this to confirm your appointment.</p>
+                </div>
+
+                <form id="contact-form" class="max-w-md mx-auto grid grid-cols-2 gap-4">
+                    <div class="col-span-1">
+                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">First Name</label>
+                        <input type="text" name="firstName" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all text-sm" />
+                    </div>
+                    <div class="col-span-1">
+                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Last Name</label>
+                        <input type="text" name="lastName" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all text-sm" />
+                    </div>
+                    <div class="col-span-2">
+                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Email Address</label>
+                        <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all text-sm" />
+                    </div>
+                    <div class="col-span-2">
+                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Phone Number</label>
+                        <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all text-sm" placeholder="(XXX) XXX-XXXX" />
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 3: Success -->
+            <div id="step-3" class="step-content p-12 text-center hidden">
+                <div class="w-20 h-20 bg-green-50 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <h4 class="text-2xl font-bold text-main mb-2">Request Received</h4>
+                <p class="text-description max-w-xs mx-auto mb-8">
+                    Thank you! Our staff will review your preferred times and contact you shortly to finalize your appointment.
+                </p>
+                <button type="button" class="btn-primary px-12 close-modal-trigger">Close Window</button>
+            </div>
+
+            <!-- Navigation Footer -->
+            <div class="mt-auto border-t border-gray-100 p-6 flex justify-between items-center bg-gray-50/50" id="booking-nav-footer">
+                <button id="prev-step" class="text-description font-bold text-sm hover:text-primary px-4 py-2 opacity-0 pointer-events-none transition-opacity">
+                    &larr; Previous Step
+                </button>
+                <button id="next-step" class="btn-accent px-10 py-3 text-sm disabled:opacity-50 disabled:cursor-not-allowed transition-all" disabled>
+                    Next Step &rarr;
+                </button>
+            </div>
         </div>
         
-        <!-- Footer Info -->
-        <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 border-t border-gray-100">
-          <p class="text-base text-main text-center w-full font-semibold">
-            You can also book with us directly at <a href="tel:4347911152" class="font-semibold text-primary hover:underline">(434) 791-1152</a>.
+        <!-- Footer direct dial -->
+        <div class="bg-gray-100/50 px-6 py-4 border-t border-gray-100">
+          <p class="text-xs text-description text-center w-full">
+            For immediate assistance, please call us directly at <a href="tel:4347911152" class="font-bold text-primary hover:underline">(434) 791-1152</a>.
           </p>
         </div>
       </div>
@@ -53,49 +149,263 @@ import logo from '../assets/logo.jpg';
   </div>
 </div>
 
+<style>
+    /* Custom Scrollbar for Slots */
+    #calendar-grid button.active {
+        @apply bg-primary text-white font-bold ring-4 ring-primary/20;
+    }
+    #calendar-grid button.disabled {
+        @apply opacity-20 cursor-not-allowed;
+    }
+    .time-slot.selected {
+        @apply bg-accent text-white border-accent ring-4 ring-accent/20;
+    }
+</style>
+
 <script>
+  // State
+  let currentStep = 1;
+  let selectedDate = null;
+  let selectedSlots = [];
+  let currentDate = new Date(); // For calendar navigation
+
   // Elements
   const modal = document.getElementById('booking-modal');
   const backdrop = document.getElementById('booking-backdrop');
   const panel = document.getElementById('booking-panel');
   const closeBtn = document.getElementById('close-booking-btn');
-  const iframe = document.getElementById('booking-iframe') as HTMLIFrameElement;
   const body = document.body;
+
+  const steps = [
+    document.getElementById('step-1'),
+    document.getElementById('step-2'),
+    document.getElementById('step-3')
+  ];
+  const nextBtn = document.getElementById('next-step') as HTMLButtonElement;
+  const prevBtn = document.getElementById('prev-step') as HTMLButtonElement;
+  const navFooter = document.getElementById('booking-nav-footer');
+
+  // Step dots
+  const dots = [
+    document.getElementById('step-dot-1'),
+    document.getElementById('step-dot-2'),
+    document.getElementById('step-dot-3')
+  ];
+
+  // Calendar Elements
+  const calendarGrid = document.getElementById('calendar-grid');
+  const monthDisplay = document.getElementById('current-month-display');
+  const slotsContainer = document.getElementById('slots-container');
+  const dateDisplay = document.getElementById('selected-date-display');
+  const slotsGrid = document.getElementById('time-slots-grid');
+  const slotsCount = document.getElementById('slot-count');
+  const selectedSlotsList = document.getElementById('selected-slots-list');
 
   // Functions
   function openModal() {
     if (!modal || !backdrop || !panel) return;
-    
+    resetFlow();
     modal.classList.remove('hidden');
     requestAnimationFrame(() => {
         backdrop.classList.remove('opacity-0');
         panel.classList.remove('opacity-0', 'translate-y-4', 'sm:translate-y-0', 'sm:scale-95');
     });
     body.style.overflow = 'hidden'; 
-
-    // Force iframe reload to ensure it captures the container size correctly
-    if (iframe && iframe.src) {
-        const currentSrc = iframe.src;
-        iframe.src = '';
-        iframe.src = currentSrc;
-    }
+    renderCalendar();
   }
 
   function closeModal() {
     if (!modal || !backdrop || !panel) return;
-
     backdrop.classList.add('opacity-0');
     panel.classList.add('opacity-0', 'translate-y-4', 'sm:translate-y-0', 'sm:scale-95');
-    
     setTimeout(() => {
         modal.classList.add('hidden');
         body.style.overflow = ''; 
     }, 300); 
   }
 
+  function resetFlow() {
+    currentStep = 1;
+    selectedDate = null;
+    selectedSlots = [];
+    updateStepVisibility();
+    (document.getElementById('contact-form') as HTMLFormElement)?.reset();
+  }
+
+  function updateStepVisibility() {
+    steps.forEach((step, index) => {
+        if (index + 1 === currentStep) {
+            step?.classList.remove('hidden');
+            step?.classList.add('block');
+        } else {
+            step?.classList.remove('block');
+            step?.classList.add('hidden');
+        }
+    });
+
+    // Update Dots
+    dots.forEach((dot, index) => {
+        if (index + 1 <= currentStep) dot?.classList.add('bg-accent');
+        else dot?.classList.remove('bg-accent');
+    });
+
+    // Nav buttons
+    if (currentStep === 1) {
+        prevBtn.classList.add('opacity-0', 'pointer-events-none');
+    } else {
+        prevBtn.classList.remove('opacity-0', 'pointer-events-none');
+    }
+
+    if (currentStep === 3) {
+        navFooter?.classList.add('hidden');
+    } else {
+        navFooter?.classList.remove('hidden');
+    }
+
+    validateStep();
+  }
+
+  function validateStep() {
+    if (currentStep === 1) {
+        nextBtn.disabled = selectedSlots.length === 0;
+    } else if (currentStep === 2) {
+        const form = document.getElementById('contact-form') as HTMLFormElement;
+        nextBtn.disabled = !form.checkValidity();
+        nextBtn.textContent = 'Confirm Appointment';
+    }
+    if (currentStep === 1) nextBtn.textContent = 'Next Step \u2192';
+  }
+
+  // Calendar Logic
+  function renderCalendar() {
+    if (!calendarGrid || !monthDisplay) return;
+    
+    calendarGrid.innerHTML = '';
+    const month = currentDate.getMonth();
+    const year = currentDate.getFullYear();
+    
+    monthDisplay.textContent = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' }).format(currentDate);
+
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const today = new Date();
+    today.setHours(0,0,0,0);
+
+    // Empty spaces
+    for (let i = 0; i < firstDay; i++) {
+        calendarGrid.innerHTML += '<div></div>';
+    }
+
+    // Days
+    for (let d = 1; d <= daysInMonth; d++) {
+        const date = new Date(year, month, d);
+        const isPast = date < today;
+        const isWeekend = date.getDay() === 0 || date.getDay() === 6;
+        const isSelected = selectedDate && date.getTime() === selectedDate.getTime();
+
+        const btn = document.createElement('button');
+        btn.textContent = d.toString();
+        btn.className = `h-10 w-10 text-xs rounded-full transition-all ${isPast || isWeekend ? 'disabled text-gray-200' : 'hover:bg-secondary text-main font-semibold'}`;
+        if (isSelected) btn.classList.add('active');
+        
+        if (!isPast && !isWeekend) {
+            btn.onclick = () => selectDate(date);
+        }
+        calendarGrid.appendChild(btn);
+    }
+  }
+
+  function selectDate(date: Date) {
+    selectedDate = date;
+    renderCalendar();
+    
+    slotsContainer?.classList.remove('opacity-50', 'pointer-events-none');
+    dateDisplay!.textContent = new Intl.DateTimeFormat('en-US', { weekday: 'long', month: 'long', day: 'numeric' }).format(date);
+    
+    renderSlots();
+    validateStep();
+  }
+
+  function renderSlots() {
+    if (!slotsGrid) return;
+    slotsGrid.innerHTML = '';
+    
+    const times = ['9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM'];
+    
+    times.forEach(time => {
+        const isSelected = selectedSlots.some(s => s.time === time && s.date.getTime() === selectedDate.getTime());
+        const btn = document.createElement('button');
+        btn.textContent = time;
+        btn.className = `time-slot py-2 px-4 rounded-xl border border-gray-200 text-xs font-bold transition-all ${isSelected ? 'selected' : 'bg-white text-gray-600 hover:border-primary hover:text-primary'}`;
+        btn.onclick = () => toggleSlot(time);
+        slotsGrid.appendChild(btn);
+    });
+
+    updateSelectedSlotsUI();
+  }
+
+  function toggleSlot(time: string) {
+    const existingIndex = selectedSlots.findIndex(s => s.time === time && s.date.getTime() === selectedDate.getTime());
+    
+    if (existingIndex > -1) {
+        selectedSlots.splice(existingIndex, 1);
+    } else if (selectedSlots.length < 3) {
+        selectedSlots.push({ date: selectedDate, time });
+    }
+    
+    renderSlots();
+    validateStep();
+  }
+
+  function updateSelectedSlotsUI() {
+    slotsCount!.textContent = selectedSlots.length.toString();
+    selectedSlotsList!.innerHTML = '';
+    
+    if (selectedSlots.length === 0) {
+        selectedSlotsList!.innerHTML = '<span class="text-xs text-gray-400 italic">No slots selected</span>';
+        return;
+    }
+
+    selectedSlots.forEach(s => {
+        const tag = document.createElement('div');
+        tag.className = 'bg-accent/10 text-accent-dark text-[10px] font-bold px-2 py-1 rounded-lg flex items-center gap-1';
+        tag.innerHTML = `${s.time} <button class="hover:text-red-500">×</button>`;
+        tag.querySelector('button')!.onclick = () => toggleSlot(s.time);
+        selectedSlotsList!.appendChild(tag);
+    });
+  }
+
+  // Event Listeners
   document.addEventListener('open-booking-modal', openModal);
   closeBtn?.addEventListener('click', closeModal);
   backdrop?.addEventListener('click', closeModal); 
+  
+  document.querySelectorAll('.close-modal-trigger').forEach(b => b.addEventListener('click', closeModal));
+
+  document.getElementById('prev-month')?.addEventListener('click', () => {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    renderCalendar();
+  });
+  document.getElementById('next-month')?.addEventListener('click', () => {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    renderCalendar();
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    if (currentStep < 3) {
+        currentStep++;
+        updateStepVisibility();
+    }
+  });
+
+  prevBtn?.addEventListener('click', () => {
+    if (currentStep > 1) {
+        currentStep--;
+        updateStepVisibility();
+    }
+  });
+
+  document.getElementById('contact-form')?.addEventListener('input', validateStep);
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !modal?.classList.contains('hidden')) {
