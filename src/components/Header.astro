@@ -43,7 +43,13 @@ const currentPath = Astro.url.pathname;
     
     <!-- Logo -->
     <a href="/" class="flex items-center group relative z-50 h-full" aria-label="Danville Gastroenterology Center Home">
-        <Image src={logo} alt="Danville Gastroenterology Center Logo" class="h-12 md:h-14 w-auto mix-blend-multiply object-contain" />
+        <Image 
+          src={logo} 
+          alt="Danville Gastroenterology Center Logo" 
+          class="h-12 md:h-14 w-auto mix-blend-multiply object-contain" 
+          loading="eager"
+          fetchpriority="high"
+        />
     </a>
 
     <!-- Desktop Menu -->
