@@ -4,26 +4,85 @@ import { Image } from 'astro:assets';
 import drPatelImg from '../../assets/doctors/dr-patel.webp';
 ---
 
-<Layout title="Dr. Mukesh B. Patel" description="Profile of Dr. Mukesh B. Patel, Gastroenterologist at Danville Gastroenterology Center.">
-  <section class="bg-secondary pt-40 pb-20">
-    <div class="container mx-auto px-4">
+<Layout title="Dr. Mukesh B. Patel" description="Dr. Mukesh B. Patel is a Gastroenterologist at Danville Gastroenterology Center with 25 years of experience, dedicated to awareness and prevention of GI diseases.">
+  <!-- Hero Section -->
+  <section class="bg-secondary pt-40 pb-20 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+    <div class="container mx-auto px-4 relative z-10">
       <div class="flex flex-col md:flex-row gap-12 items-center">
-        <div class="w-64 h-64 rounded-2xl overflow-hidden shadow-xl">
-          <Image src={drPatelImg} alt="Dr. Mukesh B. Patel" class="w-full h-full object-cover" />
+        <div class="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+          <Image src={drPatelImg} alt="Dr. Mukesh B. Patel" class="w-full h-full object-cover object-top" />
         </div>
-        <div>
-          <h1 class="heading-1 text-primary">Dr. Mukesh B. Patel</h1>
-          <p class="text-xl text-accent font-semibold">Gastroenterologist</p>
+        <div class="text-center md:text-left">
+          <span class="text-accent font-bold tracking-wider uppercase text-sm mb-2 block">Gastroenterologist</span>
+          <h1 class="heading-1 text-primary mb-4">Dr. Mukesh B. Patel</h1>
+          <p class="text-xl text-gray-600 max-w-xl">
+            With almost 25 years of experience, Dr. Patel is dedicated to preventing GI diseases through awareness and diligent care.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Bio Section -->
   <section class="py-24 bg-white">
-    <div class="container mx-auto px-4 max-w-4xl">
-      <h2 class="heading-2">Professional Profile</h2>
-      <p class="text-gray-600 mb-6">Dr. Mukesh B. Patel brings extensive expertise in gastroenterology to our practice, focusing on advanced diagnostic procedures and patient-centered care.</p>
-      <!-- Add more bio content as needed -->
+    <div class="container mx-auto px-4">
+      <div class="grid lg:grid-cols-12 gap-16">
+        <div class="lg:col-span-8">
+          <h2 class="heading-2">Professional Biography</h2>
+          <div class="prose prose-lg max-w-none text-gray-600 space-y-6">
+            <p>
+              Dr. Mukesh B. Patel is a Gastroenterologist with almost 25 years of experience. He was inspired to follow in his father's footsteps, who was a surgeon in India. He pursued specialization in Gastroenterology and enjoys helping patients with GI problems. His goal is to prevent GI diseases by increasing awareness.
+            </p>
+            <p>
+              Dr. Patel strives to maintain his core values of being honest, sincere, and present to those who need his help, doing his work diligently and paying attention to details. In his personal time, he enjoys traveling, playing golf, and finding ways to make people laugh, while also spending quality time with his family.
+            </p>
+          </div>
+
+          <div class="mt-12 p-8 bg-secondary/30 rounded-2xl border-l-4 border-accent">
+            <h3 class="text-xl font-bold text-primary mb-2">Philosophy of Care</h3>
+            <p class="text-gray-700 italic">
+              "My goal is to prevent gastrointestinal diseases by increasing awareness and providing diligent, detail-oriented care to every patient I see."
+            </p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4">
+          <div class="sticky top-32 space-y-8">
+            <!-- Quick Facts -->
+            <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 shadow-sm">
+              <h3 class="text-xl font-bold text-primary mb-6">Expertise & Values</h3>
+              <ul class="space-y-4">
+                <li class="flex items-start gap-3">
+                  <span class="text-accent mt-1">✓</span>
+                  <span class="text-gray-700 font-medium">25+ Years of Experience</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-accent mt-1">✓</span>
+                  <span class="text-gray-700 font-medium">Preventative GI Care</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-accent mt-1">✓</span>
+                  <span class="text-gray-700 font-medium">Diagnostic Endoscopy</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-accent mt-1">✓</span>
+                  <span class="text-gray-700 font-medium">Patient Awareness Advocate</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- CTA -->
+            <div class="bg-primary rounded-2xl p-8 text-white text-center shadow-lg">
+              <h4 class="font-bold text-xl mb-4">Book an Appointment</h4>
+              <p class="text-blue-100 text-sm mb-6">Schedule a consultation with Dr. Patel today.</p>
+              <button class="w-full bg-white text-primary font-bold py-3 rounded-xl hover:bg-gray-100 transition-colors trigger-booking">
+                Schedule Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </Layout>

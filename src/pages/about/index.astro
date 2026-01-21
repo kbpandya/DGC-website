@@ -1,32 +1,105 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import drPandyaImg from '../../assets/doctors/dr-pandya.webp';
+import drPatelImg from '../../assets/doctors/dr-patel.webp';
 ---
 
-<Layout title="About Us" description="Learn about Danville Gastroenterology Center and our commitment to your digestive health.">
-  <section class="bg-secondary pt-40 pb-20">
-    <div class="container mx-auto px-4">
-      <h1 class="heading-1 text-primary">About Our Practice</h1>
+<Layout title="About Our Practice" description="Learn about the history and mission of Danville Gastroenterology Center, providing expert digestive health care since 1989.">
+  <!-- Hero Section -->
+  <section class="bg-secondary pt-40 pb-20 relative overflow-hidden text-center">
+    <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <span class="text-accent font-bold tracking-wider uppercase text-sm mb-2 block">Our History & Mission</span>
+      <h1 class="heading-1 text-primary mb-6">Providing Expert GI Care Since 1989</h1>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Dedicated to serving the Danville community with specialized gastroenterology services, advanced technology, and compassionate care.
+      </p>
     </div>
   </section>
 
+  <!-- Mission & Values -->
   <section class="py-24 bg-white">
-    <div class="container mx-auto px-4 max-w-4xl">
-      <h2 class="heading-2">Expert Care in Danville</h2>
-      <p class="text-lg text-gray-600 mb-6">
-        Danville Gastroenterology Center has been providing high-quality medical care to our patients for over 30 years. We specialize in the diagnosis and treatment of diseases of the digestive tract and liver.
-      </p>
-      <div class="grid md:grid-cols-2 gap-8 mt-12">
-        <a href="/about/dr-pandya" class="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:shadow-lg transition-all">
-          <h3 class="text-xl font-bold text-primary mb-2">Dr. Bhushan H. Pandya</h3>
-          <p class="text-gray-500 mb-4">Gastroenterologist</p>
-          <span class="text-accent font-semibold">View Profile &rarr;</span>
-        </a>
-        <a href="/about/dr-patel" class="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:shadow-lg transition-all">
-          <h3 class="text-xl font-bold text-primary mb-2">Dr. Mukesh B. Patel</h3>
-          <p class="text-gray-500 mb-4">Gastroenterologist</p>
-          <span class="text-accent font-semibold">View Profile &rarr;</span>
-        </a>
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+        <div>
+          <h2 class="heading-2">Our Mission</h2>
+          <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+            The Danville Gastroenterology Center offers specialized care in gastroenterology, providing expert services in endoscopies, gastrointestinal treatments, and screenings for colon and cancer.
+          </p>
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div class="bg-secondary p-3 rounded-full text-primary h-fit">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-primary mb-1">Quality Care</h3>
+                <p class="text-gray-600">State-of-the-art diagnostics and treatments for all GI conditions.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="bg-secondary p-3 rounded-full text-primary h-fit">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-primary mb-1">Decades of Service</h3>
+                <p class="text-gray-600">Trusted by the Danville community for over 30 years.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="absolute -inset-4 bg-accent/10 rounded-2xl rotate-3"></div>
+          <img src="https://placehold.co/800x600/e6f7fa/004d66?text=Our+Facility" alt="Danville Gastroenterology Center Facility" class="rounded-2xl shadow-xl relative z-10 w-full h-auto object-cover" />
+        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Meet the Doctors -->
+  <section class="py-24 bg-secondary/30">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="heading-2">Our Physicians</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Meet our board-certified specialists dedicated to your digestive health.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <!-- Dr. Pandya -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 flex flex-col items-center text-center card-hover">
+            <div class="w-40 h-40 rounded-full overflow-hidden border-4 border-secondary mb-6">
+                 <Image src={drPandyaImg} alt="Dr. Bhushan H. Pandya" class="w-full h-full object-cover object-top" />
+            </div>
+            <h3 class="text-2xl font-bold text-primary mb-2">Dr. Bhushan H. Pandya</h3>
+            <p class="text-accent font-semibold mb-6 uppercase tracking-wide text-sm">Founder & Gastroenterologist</p>
+            <p class="text-gray-600 mb-8">Board-certified specialist with extensive leadership experience in Virginia healthcare.</p>
+            <a href="/about/dr-pandya" class="btn-primary w-full text-center">View Full Profile</a>
+        </div>
+
+        <!-- Dr. Patel -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 flex flex-col items-center text-center card-hover">
+            <div class="w-40 h-40 rounded-full overflow-hidden border-4 border-secondary mb-6">
+                 <Image src={drPatelImg} alt="Dr. Mukesh B. Patel" class="w-full h-full object-cover object-top" />
+            </div>
+            <h3 class="text-2xl font-bold text-primary mb-2">Dr. Mukesh B. Patel</h3>
+            <p class="text-accent font-semibold mb-6 uppercase tracking-wide text-sm">Gastroenterologist</p>
+            <p class="text-gray-600 mb-8">Dedicated to preventative care and patient awareness with 25 years of experience.</p>
+            <a href="/about/dr-patel" class="btn-primary w-full text-center">View Full Profile</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-24 bg-primary text-white text-center">
+    <div class="container mx-auto px-4">
+      <h2 class="heading-2 text-white mb-6">Experience Expert GI Care</h2>
+      <p class="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
+        Our specialists are ready to help you achieve better digestive health.
+      </p>
+      <button class="bg-white text-primary font-bold py-4 px-12 rounded-full text-lg shadow-2xl hover:bg-gray-100 transition-all trigger-booking">
+        Request An Appointment
+      </button>
     </div>
   </section>
 </Layout>

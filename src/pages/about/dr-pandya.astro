@@ -4,26 +4,84 @@ import { Image } from 'astro:assets';
 import drPandyaImg from '../../assets/doctors/dr-pandya.webp';
 ---
 
-<Layout title="Dr. Bhushan H. Pandya" description="Profile of Dr. Bhushan H. Pandya, Gastroenterologist at Danville Gastroenterology Center.">
-  <section class="bg-secondary pt-40 pb-20">
-    <div class="container mx-auto px-4">
+<Layout title="Dr. Bhushan H. Pandya" description="Dr. Bhushan H. Pandya is a Board-certified Gastroenterologist and founder of Danville Gastroenterology Center with over 35 years of experience.">
+  <!-- Hero Section -->
+  <section class="bg-secondary pt-40 pb-20 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+    <div class="container mx-auto px-4 relative z-10">
       <div class="flex flex-col md:flex-row gap-12 items-center">
-        <div class="w-64 h-64 rounded-2xl overflow-hidden shadow-xl">
-          <Image src={drPandyaImg} alt="Dr. Bhushan H. Pandya" class="w-full h-full object-cover" />
+        <div class="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+          <Image src={drPandyaImg} alt="Dr. Bhushan H. Pandya" class="w-full h-full object-cover object-top" />
         </div>
-        <div>
-          <h1 class="heading-1 text-primary">Dr. Bhushan H. Pandya</h1>
-          <p class="text-xl text-accent font-semibold">Gastroenterologist</p>
+        <div class="text-center md:text-left">
+          <span class="text-accent font-bold tracking-wider uppercase text-sm mb-2 block">Founder & Gastroenterologist</span>
+          <h1 class="heading-1 text-primary mb-4">Dr. Bhushan H. Pandya</h1>
+          <p class="text-xl text-gray-600 max-w-xl">
+            A Board-certified Gastroenterologist with a long-standing commitment to patient care and medical leadership in Virginia.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Bio Section -->
   <section class="py-24 bg-white">
-    <div class="container mx-auto px-4 max-w-4xl">
-      <h2 class="heading-2">Professional Profile</h2>
-      <p class="text-gray-600 mb-6">Dr. Bhushan H. Pandya is a highly experienced gastroenterologist dedicated to providing compassionate care to the Danville community.</p>
-      <!-- Add more bio content as needed -->
+    <div class="container mx-auto px-4">
+      <div class="grid lg:grid-cols-12 gap-16">
+        <div class="lg:col-span-8">
+          <h2 class="heading-2">Professional Biography</h2>
+          <div class="prose prose-lg max-w-none text-gray-600 space-y-6">
+            <p>
+              Dr. Bhushan H. Pandya is a Board-certified Gastroenterologist with a long-standing commitment to patient care. He established a Gastroenterology practice in Danville in 1985 and founded the Danville Gastroenterology Center in 1990. He has dedicated his career to serving patients both in his practice and as a member of the medical staff at Memorial Hospital (now SOVAH, Danville).
+            </p>
+            <p>
+              Dr. Pandya is a graduate of the Claude Moore Institute of Physician Leadership and has held several key leadership roles. He chaired the Board of Gateway Health Alliance for over a decade and served as President of the Medical Staff at Danville Regional Medical Center. Additionally, he has been President of both the Danville Pittsylvania Academy of Medicine and the Medical Society of Virginia. Dr. Pandya was appointed to the Virginia State Board of Health by Governors Mark Warner and Timothy Kaine.
+            </p>
+            <p>
+              On the national stage, Dr. Pandya served as Chair of the IMG Governing Council at the American Medical Association (AMA) and currently represents Virginia as an AMA delegate. He is also a member of the American Board of Medical Specialties (ABMS) Task Force on Professionalism and serves on the ABMS Stakeholder Council.
+            </p>
+            <p>
+              Dr. Pandya is deeply committed to community service, organizing health fairs and endoscopy camps in Danville and internationally to increase healthcare access. He is also an active member of the Riverview Rotary Club. Throughout his career, Dr. Pandya has remained steadfast in his mission to make a positive impact on the lives of his patients, his community, and his profession.
+            </p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4">
+          <div class="sticky top-32 space-y-8">
+            <!-- Quick Facts -->
+            <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 shadow-sm">
+              <h3 class="text-xl font-bold text-primary mb-6">Expertise & Roles</h3>
+              <ul class="space-y-4">
+                <li class="flex items-start gap-3">
+                  <span class="text-accent mt-1">✓</span>
+                  <span class="text-gray-700 font-medium">Board-certified Gastroenterologist</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-accent mt-1">✓</span>
+                  <span class="text-gray-700 font-medium">Founder of DGC</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-accent mt-1">✓</span>
+                  <span class="text-gray-700 font-medium">AMA Delegate</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-accent mt-1">✓</span>
+                  <span class="text-gray-700 font-medium">Past President, Medical Society of VA</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- CTA -->
+            <div class="bg-primary rounded-2xl p-8 text-white text-center shadow-lg">
+              <h4 class="font-bold text-xl mb-4">Book an Appointment</h4>
+              <p class="text-blue-100 text-sm mb-6">Schedule a consultation with Dr. Pandya today.</p>
+              <button class="w-full bg-white text-primary font-bold py-3 rounded-xl hover:bg-gray-100 transition-colors trigger-booking">
+                Schedule Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </Layout>
