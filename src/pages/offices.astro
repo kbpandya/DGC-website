@@ -34,12 +34,31 @@ const locations = [
   <section class="bg-secondary pt-40 pb-20 text-center relative overflow-hidden">
     <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
     <div class="container mx-auto px-4 relative z-10">
-      <span class="text-accent font-semibold tracking-wider uppercase text-sm mb-2 block">Contact Information</span>
+      <span class="text-accent-dark font-semibold tracking-wider uppercase text-sm mb-2 block">Contact Information</span>
       <h1 class="heading-1 text-primary mb-6">Our Offices</h1>
       <p class="text-xl text-description max-w-3xl mx-auto">
         We provide specialized care across two convenient locations in Danville.
       </p>
-...
+    </div>
+  </section>
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        {locations.map((loc) => (
+          <div class="card overflow-hidden flex flex-col max-w-lg mx-auto w-full">
+            <!-- Map Embed -->
+            <div class="h-64 bg-gray-100 relative">
+               <iframe 
+                 src={loc.mapEmbed} 
+                 class="absolute inset-0 w-full h-full border-0" 
+                 allowfullscreen="" 
+                 loading="lazy" 
+                 referrerpolicy="no-referrer-when-downgrade"
+                 title={`Map of ${loc.name}`}
+               ></iframe>
+            </div>
+            
             <div class="p-8 flex-grow">
               <h2 class="text-2xl font-semibold text-primary mb-8">{loc.name}</h2>
               
@@ -104,7 +123,19 @@ const locations = [
                     </ul>
                   </div>
                 </div>
-...
+              </div>
+            </div>
+
+            <!-- Footer CTA within Card -->
+            <div class="px-8 py-6 bg-gray-50 border-t border-gray-100">
+               <button class="w-full btn-primary trigger-booking py-3 text-sm">Request Appointment</button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- Emergency Note -->
   <section class="pb-24 bg-white">
     <div class="container mx-auto px-4">
