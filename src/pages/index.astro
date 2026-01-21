@@ -7,7 +7,7 @@ import homeHero from '../assets/homehero.webp';
 import { allServices } from '../data/services';
 
 const highlightedServices = allServices.filter(s => 
-  ['Colonoscopy', 'Upper Endoscopy', 'Liver Disease'].includes(s.title)
+  ['Colonoscopy', 'Upper Endoscopy', 'Colon Cancer Screening'].includes(s.title)
 );
 ---
 
@@ -197,6 +197,46 @@ const highlightedServices = allServices.filter(s =>
                   <span class="transform group-hover/link:translate-x-1 transition-transform">&rarr;</span>
                 </span>
             </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-24 bg-secondary relative overflow-hidden">
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-16">
+        <span class="text-accent-dark font-bold tracking-wider uppercase text-sm mb-2 block">Patient Experiences</span>
+        <h2 class="heading-2">Trusted by Our Community</h2>
+        <div class="w-20 h-1.5 bg-accent-dark mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {[
+          {
+            quote: "Dr. Pandya and entire staff were Top Notch. Dr. Pandya called me at Home the next day and asked me how I was feeling. Highly Recommend!",
+            author: "Roy Evans J."
+          },
+          {
+            quote: "Dr Patel and staff are top notch…it has the big city level of care and professionalism that is a pleasant surprise locally!",
+            author: "Micah P."
+          },
+          {
+            quote: "I have been a patient for 30 years. I wouldn't trust anyone else in this area. Both Dr. Patel and Dr. Pandya take pride in their work.",
+            author: "Beatrice C."
+          }
+        ].map((t) => (
+          <div class="card p-8 italic text-description flex flex-col justify-between">
+            <p class="mb-6 leading-relaxed">"{t.quote}"</p>
+            <span class="font-bold text-primary not-italic border-t border-gray-100 pt-4 block text-sm">— {t.author}</span>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="/testimonials" class="text-primary font-bold hover:text-accent-dark flex items-center gap-2 justify-center group transition-colors">
+          Read More Patient Testimonials
+          <span class="transform group-hover:translate-x-1 transition-transform">&rarr;</span>
         </a>
       </div>
     </div>
