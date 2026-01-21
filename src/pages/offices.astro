@@ -80,9 +80,15 @@ const locations = [
                     </div>
                     <div>
                       <h4 class="font-bold text-gray-900 text-sm uppercase tracking-wider mb-1">Phone</h4>
-                      <p class="text-gray-600">
-                        <a href={`tel:${loc.phone.replace(/\D/g,'')}`} class="hover:text-primary transition-colors">{loc.phone}</a>
-                      </p>
+                      <div class="text-gray-600 space-y-1">
+                        <p><a href={`tel:${loc.phone.replace(/\D/g,'')}`} class="hover:text-primary transition-colors font-medium">{loc.phone}</a></p>
+                        {loc.tollFree && (
+                          <p class="flex items-center gap-2">
+                            <a href={`tel:${loc.tollFree.replace(/\D/g,'')}`} class="hover:text-primary transition-colors font-medium">{loc.tollFree}</a>
+                            <span class="text-[10px] bg-gray-100 px-1.5 py-0.5 rounded text-gray-500 font-bold uppercase tracking-wide">Toll Free</span>
+                          </p>
+                        )}
+                      </div>
                     </div>
                   </div>
                   {loc.fax && (
