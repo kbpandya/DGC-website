@@ -6,6 +6,8 @@ import drPatelImg from '../assets/doctors/dr-patel.webp';
 import homeHero from '../assets/homehero.webp';
 import { allServices } from '../data/services';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 const highlightedServices = allServices.filter(s => 
   ['Colonoscopy', 'Upper Endoscopy', 'Colon Cancer Screening'].includes(s.title)
 );
@@ -42,7 +44,7 @@ const highlightedServices = allServices.filter(s =>
           <button class="btn-primary text-center trigger-booking" aria-label="Book an Appointment">
             Book Appointment
           </button>
-          <a href="/services" class="btn-secondary text-center" aria-label="Explore Our Medical Services">
+          <a href={`${base}/services`} class="btn-secondary text-center" aria-label="Explore Our Medical Services">
             Explore Services
           </a>
         </div>
@@ -99,7 +101,7 @@ const highlightedServices = allServices.filter(s =>
             </div>
         </div>
 
-        <a href="/about" class="text-primary font-bold hover:text-accent-dark flex items-center gap-2 group transition-colors">
+        <a href={`${base}/about`} class="text-primary font-bold hover:text-accent-dark flex items-center gap-2 group transition-colors">
           Learn more about our practice
           <span class="transform group-hover:translate-x-1 transition-transform" aria-hidden="true">&rarr;</span>
         </a>
@@ -121,7 +123,7 @@ const highlightedServices = allServices.filter(s =>
 
       <div class="grid md:grid-cols-3 gap-8">
         {highlightedServices.map(service => (
-          <a href={service.href} class="card p-8 card-hover flex flex-col items-start group" aria-label={`Learn more about our ${service.title} service`}>
+          <a href={`${base}/${service.href}`} class="card p-8 card-hover flex flex-col items-start group" aria-label={`Learn more about our ${service.title} service`}>
             <div class="w-14 h-14 bg-secondary rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300" aria-hidden="true">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.icon}></path></svg>
             </div>
@@ -135,7 +137,7 @@ const highlightedServices = allServices.filter(s =>
       </div>
       
       <div class="text-center mt-16">
-        <a href="/services" class="btn-outline inline-flex">
+        <a href={`${base}/services`} class="btn-outline inline-flex">
           View All Services
         </a>
       </div>
@@ -152,7 +154,7 @@ const highlightedServices = allServices.filter(s =>
 
       <div class="flex flex-wrap justify-center gap-10 max-w-6xl mx-auto">
         <!-- Dr. Pandya -->
-        <a href="/about/dr-pandya" class="card p-6 flex flex-col md:flex-row gap-6 items-center md:items-start card-hover group w-full lg:w-[calc(50%-1.5rem)]" aria-label="View Dr. Bhushan H. Pandya's profile">
+        <a href={`${base}/about/dr-pandya`} class="card p-6 flex flex-col md:flex-row gap-6 items-center md:items-start card-hover group w-full lg:w-[calc(50%-1.5rem)]" aria-label="View Dr. Bhushan H. Pandya's profile">
             <div class="w-32 h-32 flex-shrink-0 rounded-full overflow-hidden border-4 border-secondary">
                  <Image 
                    src={drPandyaImg} 
@@ -176,7 +178,7 @@ const highlightedServices = allServices.filter(s =>
         </a>
 
         <!-- Dr. Patel -->
-        <a href="/about/dr-patel" class="card p-6 flex flex-col md:flex-row gap-6 items-center md:items-start card-hover group w-full lg:w-[calc(50%-1.5rem)]" aria-label="View Dr. Mukesh B. Patel's profile">
+        <a href={`${base}/about/dr-patel`} class="card p-6 flex flex-col md:flex-row gap-6 items-center md:items-start card-hover group w-full lg:w-[calc(50%-1.5rem)]" aria-label="View Dr. Mukesh B. Patel's profile">
             <div class="w-32 h-32 flex-shrink-0 rounded-full overflow-hidden border-4 border-secondary">
                  <Image 
                    src={drPatelImg} 
@@ -237,7 +239,7 @@ const highlightedServices = allServices.filter(s =>
       </div>
 
       <div class="text-center mt-12">
-        <a href="/testimonials" class="text-primary font-bold hover:text-accent-dark flex items-center gap-2 justify-center group transition-colors">
+        <a href={`${base}/testimonials`} class="text-primary font-bold hover:text-accent-dark flex items-center gap-2 justify-center group transition-colors">
           Read More Patient Testimonials
           <span class="transform group-hover:translate-x-1 transition-transform" aria-hidden="true">&rarr;</span>
         </a>
