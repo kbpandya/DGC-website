@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import { servicesData } from '../../data/services';
 
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout title="Our Services" description="Comprehensive gastroenterology services including Colonoscopy, Endoscopy, and Liver Disease management in Danville, VA.">
@@ -33,7 +33,7 @@ const base = import.meta.env.BASE_URL;
             <div class="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto">
             {category.services.map((service) => (
               <a 
-                href={`${base}${service.href}`} 
+                href={`${base}/${service.href}`} 
                 class="card p-8 card-hover flex flex-col items-start h-full group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-1.5rem)] max-w-md"
                 aria-label={`Learn more about our ${service.title} service`}
               >

@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const resources = [
   {
@@ -37,7 +37,7 @@ const resources = [
     <div class="container mx-auto px-4">
       <div class="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto">
         {resources.map((item) => (
-          <a href={`${base}${item.href}`} class="card p-8 card-hover flex flex-col items-start group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-1.5rem)] max-w-md" aria-label={`Go to ${item.title}`}>
+          <a href={`${base}/${item.href}`} class="card p-8 card-hover flex flex-col items-start group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-1.5rem)] max-w-md" aria-label={`Go to ${item.title}`}>
             <div class="w-16 h-16 bg-secondary rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
               <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon}></path></svg>
             </div>
