@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About Us" description="Learn about Danville Gastroenterology Center and our commitment to your digestive health.">
+  <section class="bg-secondary pt-40 pb-20">
+    <div class="container mx-auto px-4">
+      <h1 class="heading-1 text-primary">About Our Practice</h1>
+    </div>
+  </section>
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="heading-2">Expert Care in Danville</h2>
+      <p class="text-lg text-gray-600 mb-6">
+        Danville Gastroenterology Center has been providing high-quality medical care to our patients for over 30 years. We specialize in the diagnosis and treatment of diseases of the digestive tract and liver.
+      </p>
+      <div class="grid md:grid-cols-2 gap-8 mt-12">
+        <a href="/about/dr-pandya" class="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:shadow-lg transition-all">
+          <h3 class="text-xl font-bold text-primary mb-2">Dr. Bhushan H. Pandya</h3>
+          <p class="text-gray-500 mb-4">Gastroenterologist</p>
+          <span class="text-accent font-semibold">View Profile &rarr;</span>
+        </a>
+        <a href="/about/dr-patel" class="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:shadow-lg transition-all">
+          <h3 class="text-xl font-bold text-primary mb-2">Dr. Mukesh B. Patel</h3>
+          <p class="text-gray-500 mb-4">Gastroenterologist</p>
+          <span class="text-accent font-semibold">View Profile &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

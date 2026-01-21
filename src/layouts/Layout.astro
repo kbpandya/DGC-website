@@ -36,5 +36,17 @@ const { title, description = "Danville Gastroenterology Center - Over 30 Years' 
 
 		<Footer />
 		<AppointmentModal />
+
+		<script>
+			// Centralized booking modal trigger logic
+			document.addEventListener('click', (e) => {
+				const target = e.target as HTMLElement;
+				const trigger = target.closest('.trigger-booking');
+				if (trigger) {
+					e.preventDefault();
+					document.dispatchEvent(new CustomEvent('open-booking-modal'));
+				}
+			});
+		</script>
 	</body>
 </html>

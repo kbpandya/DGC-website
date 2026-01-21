@@ -1,0 +1,31 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout title="Procedure Instructions" description="Preparation instructions for procedures at Danville Gastroenterology Center.">
+  <section class="bg-secondary pt-40 pb-20">
+    <div class="container mx-auto px-4">
+      <h1 class="heading-1 text-primary">Procedure Instructions</h1>
+    </div>
+  </section>
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="heading-2">Preparing for Your Procedure</h2>
+      <p class="text-gray-600 mb-8">Proper preparation is essential for a successful and accurate procedure. Please follow the instructions provided for your specific test.</p>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-6 bg-gray-50 rounded-xl border border-gray-100">
+          <h3 class="font-bold text-primary mb-2">Colonoscopy Prep</h3>
+          <p class="text-sm text-gray-500 mb-4">Instructions for bowel preparation before a colonoscopy.</p>
+          <a href="/services/colonoscopy#what-to-expect" class="text-accent font-semibold hover:underline">Read More &rarr;</a>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-xl border border-gray-100">
+          <h3 class="font-bold text-primary mb-2">Upper Endoscopy Prep</h3>
+          <p class="text-sm text-gray-500 mb-4">Preparation instructions for an upper endoscopy (EGD).</p>
+          <a href="/services/upper-endoscopy" class="text-accent font-semibold hover:underline">Read More &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,20 +1,14 @@
 ---
+import { allServices } from '../data/services';
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.jpg';
+
 const navItems = [
   { href: '/', label: 'Home' },
   { 
     href: '/services', 
     label: 'Services',
-    subItems: [
-      { href: '/services/upper-endoscopy', label: 'Upper Endoscopy' },
-      { href: '/services/colonoscopy', label: 'Colonoscopy' },
-      { href: '/services/colon-cancer-screening', label: 'Colon Cancer Screening' },
-      { href: '/services/gi-cancer-screening', label: 'GI Cancer Screening' },
-      { href: '/services/hepatitis-c', label: 'Hepatitis-C' },
-      { href: '/services/gall-bladder', label: 'Gall Bladder' },
-      { href: '/services/liver-disease', label: 'Liver Disease' },
-      { href: '/services/peg', label: 'Feeding Tube (PEG)' },
-      { href: '/services/capsule-endoscopy', label: 'Capsule Endoscopy' },
-    ]
+    subItems: allServices.map(s => ({ href: s.href, label: s.title }))
   },
   {
     href: '/patients',
@@ -43,7 +37,7 @@ const navItems = [
     
     <!-- Logo -->
     <a href="/" class="flex items-center group relative z-50">
-        <img src="/dgc-logo.jpg" alt="Danville Gastroenterology Center" class="h-12 md:h-16 w-auto mix-blend-multiply object-contain" />
+        <Image src={logo} alt="Danville Gastroenterology Center" class="h-12 md:h-16 w-auto mix-blend-multiply object-contain" />
     </a>
 
     <!-- Desktop Menu -->

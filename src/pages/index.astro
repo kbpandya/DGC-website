@@ -3,6 +3,11 @@ import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import drPandyaImg from '../assets/doctors/dr-pandya.webp';
 import drPatelImg from '../assets/doctors/dr-patel.webp';
+import { allServices } from '../data/services';
+
+const highlightedServices = allServices.filter(s => 
+  ['Colonoscopy', 'Upper Endoscopy', 'Liver Disease'].includes(s.title)
+);
 ---
 
 <Layout title="Home">
@@ -41,16 +46,6 @@ import drPatelImg from '../assets/doctors/dr-patel.webp';
       </div>
     </div>
   </section>
-
-<script>
-  // Wire up local triggers to the global event
-  document.querySelectorAll('.trigger-booking').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-          e.preventDefault();
-          document.dispatchEvent(new CustomEvent('open-booking-modal'));
-      });
-  });
-</script>
 
   <!-- Welcome / Intro - Clean & spacious -->
   <section class="py-24 bg-white relative overflow-hidden">
@@ -122,30 +117,14 @@ import drPatelImg from '../assets/doctors/dr-patel.webp';
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
-        {[
-          { 
-            title: 'Colonoscopy', 
-            desc: 'Screening for colon cancer and evaluation of intestinal symptoms.',
-            path: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7' 
-          },
-          { 
-            title: 'Upper Endoscopy', 
-            desc: 'Examination of the upper digestive tract to diagnose issues.',
-            path: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2' 
-          },
-          { 
-            title: 'Liver Disease', 
-            desc: 'Management of hepatitis, fatty liver, and other hepatic conditions.',
-            path: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z' 
-          },
-        ].map(service => (
+        {highlightedServices.map(service => (
           <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 card-hover flex flex-col items-start group">
             <div class="w-14 h-14 bg-secondary rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.path}></path></svg>
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.icon}></path></svg>
             </div>
             <h3 class="heading-3">{service.title}</h3>
-            <p class="text-gray-600 mb-8 flex-grow leading-relaxed">{service.desc}</p>
-            <a href="/services" class="text-primary font-semibold hover:text-accent flex items-center gap-2 transition-all group/link">
+            <p class="text-gray-600 mb-8 flex-grow leading-relaxed">{service.shortDesc}</p>
+            <a href={service.href} class="text-primary font-semibold hover:text-accent flex items-center gap-2 transition-all group/link">
                 Read More <span class="text-xl group-hover/link:translate-x-1 transition-transform">›</span>
             </a>
           </div>

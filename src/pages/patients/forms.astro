@@ -1,0 +1,35 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Forms & Policies" description="Access patient forms and office policies for Danville Gastroenterology Center.">
+  <section class="bg-secondary pt-40 pb-20">
+    <div class="container mx-auto px-4">
+      <h1 class="heading-1 text-primary">Forms & Policies</h1>
+    </div>
+  </section>
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="heading-2">Patient Forms</h2>
+      <p class="text-gray-600 mb-8">Please download, print, and complete the following forms before your appointment to expedite your check-in process.</p>
+      
+      <div class="space-y-4">
+        <div class="p-6 bg-gray-50 rounded-xl border border-gray-100 flex justify-between items-center">
+          <div>
+            <h4 class="font-bold text-primary">New Patient Registration</h4>
+            <p class="text-sm text-gray-500">Required for all first-time patients.</p>
+          </div>
+          <button class="text-accent font-semibold hover:underline">Download PDF</button>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-xl border border-gray-100 flex justify-between items-center">
+          <div>
+            <h4 class="font-bold text-primary">Medical History Questionnaire</h4>
+            <p class="text-sm text-gray-500">Provide details about your health history.</p>
+          </div>
+          <button class="text-accent font-semibold hover:underline">Download PDF</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Patient Reviews" description="Read what our patients have to say about their experience at Danville Gastroenterology Center.">
+  <section class="bg-secondary pt-40 pb-20">
+    <div class="container mx-auto px-4">
+      <h1 class="heading-1 text-primary">Patient Reviews</h1>
+    </div>
+  </section>
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[1, 2, 3].map((i) => (
+          <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 italic text-gray-600">
+            <p class="mb-6">"The care I received at Danville Gastroenterology Center was exceptional. The staff was professional and the doctors took the time to explain everything clearly."</p>
+            <span class="font-bold text-primary not-italic">- Verified Patient</span>
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-12">
+        <a href="https://www.google.com/search?q=Danville+Gastroenterology+Center#lrd=0x89ad0c3d3d3d3d3d:0x3d3d3d3d3d3d3d3d,1" target="_blank" rel="noopener noreferrer" class="btn-secondary">Leave a Review on Google</a>
+      </div>
+    </div>
+  </section>
+</Layout>

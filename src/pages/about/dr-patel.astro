@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import drPatelImg from '../../assets/doctors/dr-patel.webp';
+---
+
+<Layout title="Dr. Mukesh B. Patel" description="Profile of Dr. Mukesh B. Patel, Gastroenterologist at Danville Gastroenterology Center.">
+  <section class="bg-secondary pt-40 pb-20">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row gap-12 items-center">
+        <div class="w-64 h-64 rounded-2xl overflow-hidden shadow-xl">
+          <Image src={drPatelImg} alt="Dr. Mukesh B. Patel" class="w-full h-full object-cover" />
+        </div>
+        <div>
+          <h1 class="heading-1 text-primary">Dr. Mukesh B. Patel</h1>
+          <p class="text-xl text-accent font-semibold">Gastroenterologist</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="heading-2">Professional Profile</h2>
+      <p class="text-gray-600 mb-6">Dr. Mukesh B. Patel brings extensive expertise in gastroenterology to our practice, focusing on advanced diagnostic procedures and patient-centered care.</p>
+      <!-- Add more bio content as needed -->
+    </div>
+  </section>
+</Layout>
