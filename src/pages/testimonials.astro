@@ -92,7 +92,7 @@ const testimonials = [
     <div class="container mx-auto px-4">
       <div class="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto">
         {testimonials.map((t) => (
-          <div class="card p-8 italic text-description w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-1.5rem)] max-w-md flex flex-col justify-between">
+          <div class="card p-8 italic text-description w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-1.5rem)] max-w-md flex flex-col justify-between" aria-label={`Testimonial from ${t.author}`}>
             <div>
               <p class="mb-6 leading-relaxed">"{t.quote}"</p>
             </div>

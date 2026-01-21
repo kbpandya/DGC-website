@@ -121,7 +121,7 @@ const highlightedServices = allServices.filter(s =>
 
       <div class="grid md:grid-cols-3 gap-8">
         {highlightedServices.map(service => (
-          <a href={service.href} class="card p-8 card-hover flex flex-col items-start group">
+          <a href={service.href} class="card p-8 card-hover flex flex-col items-start group" aria-label={`Learn more about ${service.title}`}>
             <div class="w-14 h-14 bg-secondary rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.icon}></path></svg>
             </div>
@@ -152,7 +152,7 @@ const highlightedServices = allServices.filter(s =>
 
       <div class="flex flex-wrap justify-center gap-10 max-w-6xl mx-auto">
         <!-- Dr. Pandya -->
-        <a href="/about/dr-pandya" class="card p-6 flex flex-col md:flex-row gap-6 items-center md:items-start card-hover group w-full lg:w-[calc(50%-1.5rem)]">
+        <a href="/about/dr-pandya" class="card p-6 flex flex-col md:flex-row gap-6 items-center md:items-start card-hover group w-full lg:w-[calc(50%-1.5rem)]" aria-label="View Dr. Bhushan H. Pandya's profile">
             <div class="w-32 h-32 flex-shrink-0 rounded-full overflow-hidden border-4 border-secondary">
                  <Image 
                    src={drPandyaImg} 
@@ -176,7 +176,7 @@ const highlightedServices = allServices.filter(s =>
         </a>
 
         <!-- Dr. Patel -->
-        <a href="/about/dr-patel" class="card p-6 flex flex-col md:flex-row gap-6 items-center md:items-start card-hover group w-full lg:w-[calc(50%-1.5rem)]">
+        <a href="/about/dr-patel" class="card p-6 flex flex-col md:flex-row gap-6 items-center md:items-start card-hover group w-full lg:w-[calc(50%-1.5rem)]" aria-label="View Dr. Mukesh B. Patel's profile">
             <div class="w-32 h-32 flex-shrink-0 rounded-full overflow-hidden border-4 border-secondary">
                  <Image 
                    src={drPatelImg} 
@@ -225,8 +225,13 @@ const highlightedServices = allServices.filter(s =>
             quote: "I have been a patient for 30 years. I wouldn't trust anyone else in this area. Both Dr. Patel and Dr. Pandya take pride in their work.",
             author: "Beatrice C."
           }
+    <!-- Logo -->
+    <a href="/" class="flex items-center group relative z-50 h-full" aria-label="Danville Gastroenterology Center Home">
+        <Image src={logo} alt="Danville Gastroenterology Center" class="h-12 md:h-14 w-auto mix-blend-multiply object-contain" />
+    </a>
+...
         ].map((t) => (
-          <div class="card p-8 italic text-description flex flex-col justify-between">
+          <div class="card p-8 italic text-description flex flex-col justify-between" aria-label={`Testimonial from ${t.author}`}>
             <p class="mb-6 leading-relaxed">"{t.quote}"</p>
             <span class="font-bold text-primary not-italic border-t border-gray-100 pt-4 block text-sm">— {t.author}</span>
           </div>
