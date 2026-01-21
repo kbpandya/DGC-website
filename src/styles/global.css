@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Colors - Automatically becomes bg-primary, text-primary, etc. */
+  --color-primary: #004d66;
+  --color-primary-light: #007a99;
+  --color-secondary: #e6f7fa;
+  --color-accent: #d97706;
+  
+  /* Text Colors */
+  --color-text-main: #1f2937;
+  --color-text-muted: #6b7280;
+  
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  /* Spacing/Layout tokens can go here if needed, but defaults are usually fine */
+}
+
+/* 
+  Utility Classes for Typography 
+  (Enforcing consistent hierarchy per guidelines)
+*/
+@layer components {
+  .heading-1 {
+    @apply text-4xl md:text-6xl font-bold leading-tight;
+  }
+  .heading-2 {
+    @apply text-3xl font-bold text-primary mb-6;
+  }
+  .heading-3 {
+    @apply text-xl font-bold text-primary mb-3;
+  }
+  .link-interactive {
+    @apply hover:text-accent transition-colors duration-200;
+  }
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  color: var(--color-text-main);
+  background-color: #ffffff;
+}

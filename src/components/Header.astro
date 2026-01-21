@@ -1,0 +1,144 @@
+---
+const navItems = [
+  { href: '/', label: 'Home' },
+  { 
+    href: '/services', 
+    label: 'Our Services',
+    subItems: [
+      { href: '/services/upper-endoscopy', label: 'Upper Endoscopy' },
+      { href: '/services/colonoscopy', label: 'Colonoscopy' },
+      { href: '/services/colon-cancer-screening', label: 'Colon Cancer Screening' },
+      { href: '/services/gi-cancer-screening', label: 'GI Cancer Screening' },
+      { href: '/services/hepatitis-c', label: 'Hepatitis-C Management' },
+      { href: '/services/gall-bladder', label: 'Gall Bladder Disease' },
+      { href: '/services/liver-disease', label: 'Liver Disease Management' },
+      { href: '/services/peg', label: 'Feeding Tube Insertion (PEG)' },
+      { href: '/services/capsule-endoscopy', label: 'Capsule Endoscopy' },
+    ]
+  },
+  {
+    href: '/patients',
+    label: 'For Patients',
+    subItems: [
+      { href: '/patients/forms', label: 'Forms and Policies' },
+      { href: '/patients/rights', label: 'Rights and Responsibilities' },
+      { href: '/patients/instructions', label: 'Procedure Instructions' },
+    ]
+  },
+  { href: '/testimonials', label: 'Testimonials' },
+  {
+    href: '/about',
+    label: 'About',
+    subItems: [
+      { href: '/about/dr-pandya', label: 'Meet Dr. Pandya' },
+      { href: '/about/dr-patel', label: 'Meet Dr. Patel' },
+    ]
+  },
+  { href: '/contact', label: 'Contact Us' },
+];
+---
+
+<header class="bg-white shadow-md relative z-50">
+  <!-- Top Bar: Contact Info -->
+  <div class="bg-primary text-white py-2 text-sm">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <span>📍 404 Airport Dr, Danville, VA 24540</span>
+      <a href="tel:4347911152" class="hover:underline font-bold">📞 (434) 791-1152</a>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <!-- Logo -->
+    <a href="/" class="text-2xl font-bold text-primary leading-tight">
+      Danville <br class="sm:hidden" />Gastroenterology
+    </a>
+
+    <!-- Desktop Menu -->
+    <ul class="hidden md:flex gap-6 items-center">
+      {navItems.map((item) => (
+        <li class="relative group">
+          {item.subItems ? (
+            <div class="relative">
+              <a href={item.href} class="flex items-center gap-1 py-2 hover:text-primary-light font-medium transition-colors">
+                {item.label}
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </a>
+              <!-- Dropdown -->
+              <ul class="absolute left-0 mt-2 w-64 bg-white shadow-lg rounded-md border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0">
+                {item.subItems.map((sub) => (
+                  <li>
+                    <a href={sub.href} class="block px-4 py-2 hover:bg-secondary hover:text-primary text-sm text-gray-700">
+                      {sub.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            <a href={item.href} class="font-medium hover:text-primary-light transition-colors">
+              {item.label}
+            </a>
+          )}
+        </li>
+      ))}
+      <li>
+        <a href="/appointment" class="bg-accent text-white px-5 py-2 rounded-full font-bold hover:bg-orange-700 transition-colors shadow-sm">
+          Book Now
+        </a>
+      </li>
+    </ul>
+
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-btn" class="md:hidden text-primary focus:outline-none" aria-label="Toggle Menu">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu Drawer -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 top-full shadow-xl max-h-[80vh] overflow-y-auto">
+    <ul class="flex flex-col p-4 gap-2">
+      {navItems.map((item) => (
+        <li class="border-b border-gray-50 last:border-0 pb-2 last:pb-0">
+          {item.subItems ? (
+            <details class="group">
+              <summary class="flex justify-between items-center py-2 font-medium text-lg cursor-pointer list-none text-primary">
+                {item.label}
+                <svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </summary>
+              <ul class="pl-4 mt-2 flex flex-col gap-2 bg-secondary rounded-md p-2">
+                <!-- Landing Page for the section -->
+                <li><a href={item.href} class="block py-1 text-sm font-bold underline">All {item.label}</a></li>
+                {item.subItems.map((sub) => (
+                  <li>
+                    <a href={sub.href} class="block py-1 text-sm text-gray-600 hover:text-primary">
+                      {sub.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          ) : (
+            <a href={item.href} class="block py-2 font-medium text-lg text-primary">
+              {item.label}
+            </a>
+          )}
+        </li>
+      ))}
+       <li class="mt-4">
+        <a href="/appointment" class="block w-full text-center bg-accent text-white px-5 py-3 rounded-md font-bold">
+          Book Appointment
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>
