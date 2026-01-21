@@ -1,0 +1,106 @@
+---
+---
+
+<div id="booking-modal" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+  <!-- Backdrop -->
+  <div class="fixed inset-0 bg-gray-900/75 backdrop-blur-sm transition-opacity opacity-0" id="booking-backdrop"></div>
+
+  <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+    <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+      
+      <!-- Modal Panel -->
+      <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" id="booking-panel">
+        
+        <!-- Header: Perfectly Symmetrical -->
+        <div class="bg-white px-4 py-4 sm:px-6 border-b border-gray-100 flex items-center justify-between relative min-h-[80px]">
+            <!-- Left: Logo -->
+            <div class="relative z-10">
+                 <img src="/dgc-logo.jpg" alt="DGC Logo" class="h-10 md:h-12 w-auto object-contain" />
+            </div>
+            
+            <!-- Center: Title (Absolute Centered) -->
+            <h3 class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-lg md:text-xl font-semibold text-gray-900 font-display whitespace-nowrap" id="modal-title">
+              Request Appointment
+            </h3>
+
+            <!-- Right: Close Button -->
+            <div class="relative z-10">
+              <button type="button" id="close-booking-btn" class="rounded-full bg-gray-50 text-gray-400 hover:text-gray-900 hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-primary p-2">
+                <span class="sr-only">Close</span>
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+        </div>
+
+        <!-- Iframe Container -->
+        <div class="bg-white h-[550px] w-full relative">
+             <div class="absolute inset-0 flex items-center justify-center text-gray-400 text-sm z-0">
+                Loading scheduling system...
+             </div>
+             <!-- The actual widget iframe -->
+             <iframe 
+                src="https://www.hibuappointments.com/book/iframe/111406166?lang=en" 
+                class="w-full h-full relative z-10 border-0"
+                allow="camera; microphone; autoplay; encrypted-media;"
+                title="Appointment Scheduling Widget"
+            ></iframe>
+        </div>
+        
+        <!-- Footer Info -->
+        <div class="bg-gray-50 px-6 py-4 sm:px-10 border-t border-gray-200">
+          <p class="text-base text-gray-700 text-center w-full font-medium">
+            You can also book with us directly at 
+            <a href="tel:4347911152" class="font-semibold text-primary hover:text-accent ml-1 transition-colors">
+              (434) 791-1152
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Elements
+  const modal = document.getElementById('booking-modal');
+  const backdrop = document.getElementById('booking-backdrop');
+  const panel = document.getElementById('booking-panel');
+  const closeBtn = document.getElementById('close-booking-btn');
+  const body = document.body;
+
+  // Functions
+  function openModal() {
+    if (!modal || !backdrop || !panel) return;
+    
+    modal.classList.remove('hidden');
+    requestAnimationFrame(() => {
+        backdrop.classList.remove('opacity-0');
+        panel.classList.remove('opacity-0', 'translate-y-4', 'sm:translate-y-0', 'sm:scale-95');
+    });
+    body.style.overflow = 'hidden'; 
+  }
+
+  function closeModal() {
+    if (!modal || !backdrop || !panel) return;
+
+    backdrop.classList.add('opacity-0');
+    panel.classList.add('opacity-0', 'translate-y-4', 'sm:translate-y-0', 'sm:scale-95');
+    
+    setTimeout(() => {
+        modal.classList.add('hidden');
+        body.style.overflow = ''; 
+    }, 300); 
+  }
+
+  document.addEventListener('open-booking-modal', openModal);
+  closeBtn?.addEventListener('click', closeModal);
+  backdrop?.addEventListener('click', closeModal); 
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal?.classList.contains('hidden')) {
+        closeModal();
+    }
+  });
+</script>
