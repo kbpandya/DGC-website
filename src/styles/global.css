@@ -10,7 +10,7 @@
   
   /* Text Colors */
   --color-text-main: #1f2937;
-  --color-text-muted: #6b7280;
+  --color-text-muted: #4b5563; /* Updated from #6b7280 for AA compliance */
   
   /* Fonts */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
