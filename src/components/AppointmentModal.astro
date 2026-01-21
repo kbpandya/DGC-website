@@ -28,17 +28,17 @@ import logo from '../assets/logo.jpg';
         </div>
 
         <!-- Iframe Container -->
-        <div class="bg-white h-[600px] w-full relative">
+        <div class="bg-white h-[650px] w-full relative">
              <div class="absolute inset-0 flex items-center justify-center text-gray-400 text-sm z-0">
                 Loading scheduling system...
              </div>
              <!-- The actual widget iframe -->
              <iframe 
                 src="https://www.hibuappointments.com/book/iframe/111406166?lang=en" 
-                class="w-full h-full relative z-10 border-0"
+                class="absolute inset-0 w-full h-full z-10 border-0"
                 allow="camera; microphone; autoplay; encrypted-media;"
                 title="Appointment Scheduling Widget"
-                scrolling="yes"
+                id="booking-iframe"
             ></iframe>
         </div>
         
@@ -59,6 +59,7 @@ import logo from '../assets/logo.jpg';
   const backdrop = document.getElementById('booking-backdrop');
   const panel = document.getElementById('booking-panel');
   const closeBtn = document.getElementById('close-booking-btn');
+  const iframe = document.getElementById('booking-iframe') as HTMLIFrameElement;
   const body = document.body;
 
   // Functions
@@ -71,6 +72,13 @@ import logo from '../assets/logo.jpg';
         panel.classList.remove('opacity-0', 'translate-y-4', 'sm:translate-y-0', 'sm:scale-95');
     });
     body.style.overflow = 'hidden'; 
+
+    // Force iframe reload to ensure it captures the container size correctly
+    if (iframe && iframe.src) {
+        const currentSrc = iframe.src;
+        iframe.src = '';
+        iframe.src = currentSrc;
+    }
   }
 
   function closeModal() {
