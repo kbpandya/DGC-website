@@ -167,7 +167,7 @@ const highlightedServices = allServices.filter(s =>
             </div>
             <div class="text-center md:text-left">
                 <h3 class="text-2xl font-bold text-primary mb-1 font-display group-hover:text-accent-dark transition-colors whitespace-nowrap">Dr. Bhushan H. Pandya</h3>
-                <p class="text-accent-dark font-bold mb-6 uppercase tracking-wide text-sm">Gastroenterologist</p>
+                <p class="text-accent-dark font-bold mb-6 uppercase tracking-wide text-sm">Founder & Gastroenterologist</p>
                 <span class="inline-flex items-center gap-2 text-primary font-bold hover:text-accent-dark transition-colors group/link">
                   View Full Profile 
                   <span class="transform group-hover/link:translate-x-1 transition-transform">&rarr;</span>
@@ -225,11 +225,6 @@ const highlightedServices = allServices.filter(s =>
             quote: "I have been a patient for 30 years. I wouldn't trust anyone else in this area. Both Dr. Patel and Dr. Pandya take pride in their work.",
             author: "Beatrice C."
           }
-    <!-- Logo -->
-    <a href="/" class="flex items-center group relative z-50 h-full" aria-label="Danville Gastroenterology Center Home">
-        <Image src={logo} alt="Danville Gastroenterology Center" class="h-12 md:h-14 w-auto mix-blend-multiply object-contain" />
-    </a>
-...
         ].map((t) => (
           <div class="card p-8 italic text-description flex flex-col justify-between" aria-label={`Testimonial from ${t.author}`}>
             <p class="mb-6 leading-relaxed">"{t.quote}"</p>
@@ -255,7 +250,7 @@ const highlightedServices = allServices.filter(s =>
       <p class="text-xl text-blue-50 mb-10 max-w-2xl mx-auto font-light">
         Don't delay your digestive health. Schedule a consultation with our experts today.
       </p>
-      <button class="bg-white text-primary font-semibold py-4 px-12 rounded-full text-lg shadow-2xl hover:bg-gray-100 hover:scale-105 transition-all duration-300 trigger-booking">
+      <button class="bg-white text-primary font-bold py-4 px-12 rounded-full text-lg shadow-2xl hover:bg-gray-100 hover:scale-105 transition-all duration-300 trigger-booking">
         Contact Us Now
       </button>
     </div>
