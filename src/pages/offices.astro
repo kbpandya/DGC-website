@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const locations = [
+  {
+    name: "Main Office",
+    address: "501 Rison St, Ste 130",
+    city: "Danville, VA 24541",
+    phone: "(434) 791-1152",
+    tollFree: "(888) 791-9245",
+    fax: "(434) 797-4745",
+    hours: [
+      { days: "Mon - Thu", time: "9:00 AM - 4:30 PM" },
+      { days: "Friday", time: "9:00 AM - 12:30 PM" },
+      { days: "Sat - Sun", time: "Closed" }
+    ],
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3191.041682121414!2d-79.3948216!3d36.5934167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ad0c3d3d3d3d3d%3A0x3d3d3d3d3d3d3d3d!2s501%20Rison%20St%20%23130%2C%20Danville%2C%20VA%2024541!5e0!3m2!1sen!2sus!4v1705790000000!5m2!1sen!2sus"
+  },
+  {
+    name: "Endoscopy Center",
+    address: "600 Cleveland St.",
+    city: "Danville, VA 24541",
+    phone: "(434) 791-2668",
+    hours: [
+      { days: "Mon - Thu", time: "7:45 AM - 3:30 PM" },
+      { days: "Fri - Sun", time: "Closed" }
+    ],
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3191.1!2d-79.39!3d36.59!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ad0c3d3d3d3d3d%3A0x3d3d3d3d3d3d3d3d!2s600%20Cleveland%20St%2C%20Danville%2C%20VA%2024541!5e0!3m2!1sen!2sus!4v1705790000000!5m2!1sen!2sus"
+  }
+];
+---
+
+<Layout title="Our Offices" description="Visit Danville Gastroenterology Center at our Main Office or Endoscopy Center. Addresses, phone numbers, and office hours.">
+  <section class="bg-secondary pt-40 pb-20 text-center relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <span class="text-accent font-bold tracking-wider uppercase text-sm mb-2 block">Contact Information</span>
+      <h1 class="heading-1 text-primary mb-6">Our Offices</h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        We provide specialized care across two convenient locations in Danville.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
+        {locations.map((loc) => (
+          <div class="card overflow-hidden flex flex-col">
+            <!-- Map Embed -->
+            <div class="h-64 bg-gray-100 relative">
+               <iframe 
+                 src={loc.mapEmbed} 
+                 class="absolute inset-0 w-full h-full border-0" 
+                 allowfullscreen="" 
+                 loading="lazy" 
+                 referrerpolicy="no-referrer-when-downgrade"
+                 title={`Map of ${loc.name}`}
+               ></iframe>
+            </div>
+            
+            <div class="p-10 flex-grow">
+              <h2 class="text-3xl font-bold text-primary mb-6">{loc.name}</h2>
+              
+              <div class="grid md:grid-cols-2 gap-10">
+                <!-- Address & Phone -->
+                <div class="space-y-6">
+                  <div class="flex gap-4">
+                    <span class="text-xl">📍</span>
+                    <div>
+                      <h4 class="font-bold text-gray-900 text-sm uppercase tracking-wider mb-1">Address</h4>
+                      <p class="text-gray-600 leading-relaxed">{loc.address}<br/>{loc.city}</p>
+                    </div>
+                  </div>
+                  <div class="flex gap-4">
+                    <span class="text-xl">📞</span>
+                    <div>
+                      <h4 class="font-bold text-gray-900 text-sm uppercase tracking-wider mb-1">Phone</h4>
+                      <p class="text-gray-600">
+                        <a href={`tel:${loc.phone.replace(/\D/g,'')}`} class="hover:text-primary transition-colors">{loc.phone}</a>
+                        {loc.tollFree && <><br/><span class="text-xs text-gray-400">Toll Free:</span> {loc.tollFree}</>}
+                      </p>
+                    </div>
+                  </div>
+                  {loc.fax && (
+                    <div class="flex gap-4">
+                      <span class="text-xl">📠</span>
+                      <div>
+                        <h4 class="font-bold text-gray-900 text-sm uppercase tracking-wider mb-1">Fax</h4>
+                        <p class="text-gray-600">{loc.fax}</p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                <!-- Hours -->
+                <div>
+                  <h4 class="font-bold text-gray-900 text-sm uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <span class="text-xl">🕒</span> Office Hours
+                  </h4>
+                  <ul class="space-y-3">
+                    {loc.hours.map(h => (
+                      <li class="flex justify-between text-sm border-b border-gray-50 pb-2 last:border-0">
+                        <span class="text-gray-500">{h.days}</span>
+                        <span class="font-semibold text-primary">{h.time}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer CTA within Card -->
+            <div class="px-10 py-6 bg-gray-50 border-t border-gray-100">
+               <button class="w-full btn-primary trigger-booking">Request Appointment at this Location</button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Emergency Note -->
+  <section class="pb-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center p-8 bg-secondary/30 rounded-3xl border border-primary/5">
+        <h3 class="font-bold text-primary mb-2">Need immediate assistance?</h3>
+        <p class="text-gray-600">For medical emergencies, please dial **911** immediately. For non-urgent clinical questions, please call our Main Office during business hours.</p>
+      </div>
+    </div>
+  </section>
+</Layout>
