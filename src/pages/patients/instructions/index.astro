@@ -6,24 +6,24 @@ const preps = [
     title: "Colonoscopy Preparation",
     description: "Crucial instructions for bowel cleansing before your colonoscopy. Choose the option prescribed by your doctor.",
     options: [
-      { name: "Option A Prep", href: "#" },
-      { name: "Option B Prep", href: "#" },
-      { name: "Option C Prep", href: "#" }
+      { name: "MoviPrep / Plenvu Instructions", id: "moviprep" },
+      { name: "SuPrep / SuTab Instructions", id: "suprep" },
+      { name: "Gavilyte / PEG-3350 Instructions", id: "gavilyte" }
     ]
   },
   {
     title: "Upper Endoscopy (EGD)",
     description: "Preparation for examining the upper digestive tract, including fasting requirements.",
     options: [
-      { name: "EGD Patient Prep", href: "#" }
+      { name: "Standard EGD Preparation", id: "egd" }
     ]
   },
   {
     title: "Specialized Procedures",
     description: "Instructions for advanced diagnostic tests like Capsule Endoscopy.",
     options: [
-      { name: "Capsule Endoscopy (CapsoCam)", href: "#" },
-      { name: "Enteroscopy/Sigmoidoscopy Prep", href: "#" }
+      { name: "Capsule Endoscopy (CapsoCam)", id: "capsule" },
+      { name: "Flexible Sigmoidoscopy Prep", id: "sigmoidoscopy" }
     ]
   }
 ];
@@ -65,10 +65,14 @@ const preps = [
               
               <div class="space-y-3">
                 {prep.options.map(opt => (
-                  <a href={opt.href} class="flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:bg-secondary/50 hover:text-primary transition-colors group font-semibold text-gray-700">
+                  <button 
+                    class="w-full flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:bg-secondary/50 hover:text-primary transition-colors group font-semibold text-gray-700 text-left cursor-pointer border-none"
+                    aria-label={`Download ${opt.name}`}
+                    onclick={`alert('Instructions for ${opt.name} will be available for download soon. Please contact our office if you need them immediately.')`}
+                  >
                     {opt.name}
-                    <span class="text-accent-dark group-hover:translate-x-1 transition-transform">↓</span>
-                  </a>
+                    <span class="text-accent-dark group-hover:translate-x-1 transition-transform" aria-hidden="true">↓</span>
+                  </button>
                 ))}
               </div>
             </div>
