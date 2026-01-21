@@ -5,7 +5,12 @@ import drPandyaImg from '../assets/doctors/dr-pandya.webp';
 import drPatelImg from '../assets/doctors/dr-patel.webp';
 import homeHero from '../assets/homehero.webp';
 import { allServices } from '../data/services';
-...
+
+const highlightedServices = allServices.filter(s => 
+  ['Colonoscopy', 'Upper Endoscopy', 'Liver Disease'].includes(s.title)
+);
+---
+
 <Layout title="Home">
   <!-- Hero Section -->
   <section class="relative bg-primary text-white overflow-hidden min-h-[85vh] flex items-center">
