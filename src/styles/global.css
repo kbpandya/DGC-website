@@ -59,6 +59,10 @@
   .card-hover {
     @apply hover:shadow-xl hover:-translate-y-1 hover:shadow-primary/5 hover:border-primary/20;
   }
+  
+  .callout {
+    @apply bg-secondary/40 border border-primary/10 border-l-4 border-l-accent p-8 rounded-r-2xl my-12 shadow-sm;
+  }
 }
 
 @keyframes fadeInUp {
