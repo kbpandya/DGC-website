@@ -39,7 +39,7 @@ const currentPath = Astro.url.pathname;
                                     <nav class="flex flex-col">
                                       {allServices.map((service) => (
                                         <a 
-                                          href={service.href} 
+                                          href={`${base}/${service.href}`} 
                                           class:list={[
                                             "px-4 py-3 border-b border-gray-50 hover:bg-secondary/50 transition-colors text-sm font-semibold",
                                             currentPath === service.href || currentPath === service.href + '/' 
@@ -55,7 +55,7 @@ const currentPath = Astro.url.pathname;
                         
                                   <!-- Mini CTA -->
                                   <div class="card bg-primary p-6 text-white text-center shadow-lg">
-                                    <h4 class="font-semibold text-xl mb-2">Need an Appointment?</h4>
+                                    <h3 class="font-semibold text-xl mb-2">Need an Appointment?</h3>
                                     <p class="text-blue-50 text-sm mb-6">Our specialists are ready to help.</p>
                                     <button class="w-full bg-white text-primary font-semibold py-3 rounded-lg hover:bg-gray-100 transition-colors trigger-booking">
                                       Book Now
