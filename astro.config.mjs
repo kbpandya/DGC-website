@@ -7,6 +7,9 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://kbpandya.github.io',
   base: '/DGC-website',
+  build: {
+    inlineStylesheets: 'always'
+  },
   image: {
     domains: ['placehold.co'],
   },

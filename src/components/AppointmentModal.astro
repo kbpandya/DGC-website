@@ -463,77 +463,86 @@ import logo from '../assets/logo.jpg';
   }
 
   // Event Listeners
-  document.addEventListener('open-booking-modal', openModal);
-  closeBtn?.addEventListener('click', closeModal);
-  backdrop?.addEventListener('click', closeModal); 
-  
-  document.querySelectorAll('.close-modal-trigger').forEach(b => b.addEventListener('click', closeModal));
+  const initModal = () => {
+    document.addEventListener('open-booking-modal', openModal);
+    closeBtn?.addEventListener('click', closeModal);
+    backdrop?.addEventListener('click', closeModal); 
+    
+    document.querySelectorAll('.close-modal-trigger').forEach(b => b.addEventListener('click', closeModal));
 
-  document.getElementById('prev-month')?.addEventListener('click', () => {
-    currentDate.setMonth(currentDate.getMonth() - 1);
-    renderCalendar();
-  });
-  document.getElementById('next-month')?.addEventListener('click', () => {
-    currentDate.setMonth(currentDate.getMonth() + 1);
-    renderCalendar();
-  });
+    document.getElementById('prev-month')?.addEventListener('click', () => {
+      currentDate.setMonth(currentDate.getMonth() - 1);
+      renderCalendar();
+    });
+    document.getElementById('next-month')?.addEventListener('click', () => {
+      currentDate.setMonth(currentDate.getMonth() + 1);
+      renderCalendar();
+    });
 
-  nextBtn?.addEventListener('click', async () => {
-    if (currentStep === 2) {
-        // Handle Form Submission to Web3Forms
-        const form = document.getElementById('contact-form') as HTMLFormElement;
-        const formData = new FormData(form);
-        
-        // Add dynamic calendar data
-        const hiddenDate = document.getElementById('hidden-date') as HTMLInputElement;
-        const hiddenSlots = document.getElementById('hidden-slots') as HTMLInputElement;
-        
-        hiddenDate.value = new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(selectedDate);
-        hiddenSlots.value = selectedSlots.map(s => s.time).join(', ');
-        
-        // Refresh formData with hidden fields
-        const finalData = new FormData(form);
-        
-        nextBtn.disabled = true;
-        nextBtn.textContent = 'Sending...';
+    nextBtn?.addEventListener('click', async () => {
+      if (currentStep === 2) {
+          // Handle Form Submission to Web3Forms
+          const form = document.getElementById('contact-form') as HTMLFormElement;
+          const formData = new FormData(form);
+          
+          // Add dynamic calendar data
+          const hiddenDate = document.getElementById('hidden-date') as HTMLInputElement;
+          const hiddenSlots = document.getElementById('hidden-slots') as HTMLInputElement;
+          
+          hiddenDate.value = new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(selectedDate);
+          hiddenSlots.value = selectedSlots.map(s => s.time).join(', ');
+          
+          // Refresh formData with hidden fields
+          const finalData = new FormData(form);
+          
+          nextBtn.disabled = true;
+          nextBtn.textContent = 'Sending...';
 
-        try {
-            const response = await fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                body: finalData
-            });
+          try {
+              const response = await fetch('https://api.web3forms.com/submit', {
+                  method: 'POST',
+                  body: finalData
+              });
 
-            if (response.ok) {
-                currentStep = 3;
-                updateStepVisibility();
-            } else {
-                alert('There was an error sending your request. Please try again or call us.');
-                nextBtn.disabled = false;
-                nextBtn.textContent = 'Confirm Appointment';
-            }
-        } catch (error) {
-            alert('There was a connection error. Please try again or call us.');
-            nextBtn.disabled = false;
-            nextBtn.textContent = 'Confirm Appointment';
-        }
-    } else if (currentStep < 2) {
-        currentStep++;
-        updateStepVisibility();
-    }
-  });
+              if (response.ok) {
+                  currentStep = 3;
+                  updateStepVisibility();
+              } else {
+                  alert('There was an error sending your request. Please try again or call us.');
+                  nextBtn.disabled = false;
+                  nextBtn.textContent = 'Confirm Appointment';
+              }
+          } catch (error) {
+              alert('There was a connection error. Please try again or call us.');
+              nextBtn.disabled = false;
+              nextBtn.textContent = 'Confirm Appointment';
+          }
+      } else if (currentStep < 2) {
+          currentStep++;
+          updateStepVisibility();
+      }
+    });
 
-  prevBtn?.addEventListener('click', () => {
-    if (currentStep > 1) {
-        currentStep--;
-        updateStepVisibility();
-    }
-  });
+    prevBtn?.addEventListener('click', () => {
+      if (currentStep > 1) {
+          currentStep--;
+          updateStepVisibility();
+      }
+    });
 
-  document.getElementById('contact-form')?.addEventListener('input', validateStep);
+    document.getElementById('contact-form')?.addEventListener('input', validateStep);
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !modal?.classList.contains('hidden')) {
-        closeModal();
-    }
-  });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal?.classList.contains('hidden')) {
+          closeModal();
+      }
+    });
+  };
+
+  // Run initialization when browser is idle to optimize LCP
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(initModal);
+  } else {
+    setTimeout(initModal, 1);
+  }
 </script>
