@@ -61,7 +61,10 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || `${base}/`;
     <div class="hidden lg:flex items-center gap-8 h-full">
       <ul class="flex gap-6 items-center h-full">
         {navItems.map((item) => {
-          const isActive = currentPath === item.href || (item.href !== `${base}/` && currentPath.startsWith(item.href));
+          const normalizedPath = currentPath.replace(/\/$/, '') || `${base}`;
+          const normalizedHref = item.href.replace(/\/$/, '') || `${base}`;
+          const isActive = normalizedPath === normalizedHref || (normalizedHref !== `${base}` && normalizedPath.startsWith(normalizedHref));
+          
           return (
             <li class="relative group h-full flex items-center">
               {item.subItems ? (
@@ -142,7 +145,10 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || `${base}/`;
   <div id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-xl z-40 translate-x-full transition-transform duration-300 lg:hidden flex flex-col pt-24 pb-8 px-6 overflow-y-auto" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
     <ul class="flex flex-col gap-6">
       {navItems.map((item) => {
-        const isActive = currentPath === item.href || (item.href !== `${base}/` && currentPath.startsWith(item.href));
+        const normalizedPath = currentPath.replace(/\/$/, '') || `${base}`;
+        const normalizedHref = item.href.replace(/\/$/, '') || `${base}`;
+        const isActive = normalizedPath === normalizedHref || (normalizedHref !== `${base}` && normalizedPath.startsWith(normalizedHref));
+        
         return (
           <li class="border-b border-gray-100 pb-4 last:border-0 last:pb-0">
             {item.subItems ? (
