@@ -9,7 +9,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   
   <!-- Page Header - Added pt-40 to clear header -->
   <section class="bg-secondary pt-40 pb-20 relative overflow-hidden">
-    <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+    <div class="absolute inset-0 opacity-5" style={`background-image: url('${base}/assets/patterns/cubes.png')`}></div>
     <div class="container mx-auto px-4 relative z-10 text-center">
       <h1 class="heading-1 mb-4 text-primary">Our Medical Services</h1>
       <p class="text-xl text-description max-w-2xl mx-auto">

@@ -24,6 +24,9 @@ const highlightedServices = allServices.filter(s =>
             src={homeHero} 
             alt="Danville Gastroenterology Center Facility" 
             class="absolute inset-0 w-full h-full object-cover" 
+            widths={[400, 800, 1200, 1920]}
+            sizes="100vw"
+            quality={60}
             loading="eager"
             fetchpriority="high"
         />
@@ -66,8 +69,9 @@ const highlightedServices = allServices.filter(s =>
                 alt="Danville Gastroenterology Center Exterior" 
                 width={800}
                 height={600}
-                widths={[400, 800, 1200]}
-                sizes="(max-width: 768px) 100vw, 800px"
+                widths={[400, 700, 1330]}
+                sizes="(max-width: 768px) 100vw, 665px"
+                quality={80}
                 decoding="async"
                 loading="eager"
                 fetchpriority="high"
@@ -208,7 +212,7 @@ const highlightedServices = allServices.filter(s =>
 
   <!-- Testimonials Section -->
   <section class="py-24 bg-secondary relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]" aria-hidden="true"></div>
+    <div class="absolute inset-0 opacity-10" style={`background-image: url('${base}/assets/patterns/cubes.png')`} aria-hidden="true"></div>
     <div class="container mx-auto px-4 relative z-10">
       <div class="text-center mb-16">
         <span class="text-accent-dark font-semibold tracking-wider uppercase text-sm mb-2 block">Patient Experiences</span>
@@ -251,7 +255,7 @@ const highlightedServices = allServices.filter(s =>
 
   <!-- CTA Section - Modern Gradient -->
   <section class="py-24 bg-gradient-to-br from-primary to-[#003d52] text-white text-center relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]" aria-hidden="true"></div>
+    <div class="absolute inset-0 opacity-10" style={`background-image: url('${base}/assets/patterns/cubes.png')`} aria-hidden="true"></div>
     <div class="container mx-auto px-4 relative z-10">
       <h2 class="heading-2 text-white mb-6">Ready to Prioritize Your Health?</h2>
       <p class="text-xl text-blue-50 mb-10 max-w-2xl mx-auto font-light">

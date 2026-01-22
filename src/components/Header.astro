@@ -48,6 +48,9 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || `${base}/`;
         <Image 
           src={logo} 
           alt="Danville Gastroenterology Center Logo" 
+          widths={[230, 460]}
+          sizes="230px"
+          quality={80}
           class="h-12 md:h-14 w-auto mix-blend-multiply object-contain" 
           loading="eager"
           fetchpriority="high"
