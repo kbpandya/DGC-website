@@ -360,11 +360,20 @@ import logo from '../assets/logo.jpg';
         btn.textContent = d.toString();
         const formattedDate = new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(date);
         btn.setAttribute('aria-label', `${formattedDate}${isSelected ? ', currently selected' : ''}`);
-        btn.className = `h-11 w-11 text-sm rounded-full transition-all ${isPast || isWeekend ? 'disabled text-gray-200' : 'hover:bg-secondary text-main font-semibold'}`;
-        if (isSelected) {
-            btn.classList.add('active');
+        
+        // Base classes
+        let classes = 'h-11 w-11 text-sm rounded-full transition-all flex items-center justify-center ';
+        
+        if (isPast || isWeekend) {
+            classes += 'opacity-20 cursor-not-allowed text-gray-400';
+        } else if (isSelected) {
+            classes += 'bg-primary text-white font-bold ring-4 ring-primary/20';
             btn.setAttribute('aria-current', 'date');
+        } else {
+            classes += 'hover:bg-secondary text-main font-semibold';
         }
+        
+        btn.className = classes;
         
         if (!isPast && !isWeekend) {
             btn.onclick = () => selectDate(date);
