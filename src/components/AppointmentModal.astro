@@ -255,7 +255,16 @@ import logo from '../assets/logo.jpg';
     currentStep = 1;
     selectedDate = null;
     selectedSlots = [];
+    currentDate = new Date(); // Reset calendar view to current month
+    
+    // Reset UI Elements
+    slotsContainer?.classList.add('opacity-50', 'pointer-events-none');
+    dateDisplay!.textContent = 'Select a date first';
+    
     updateStepVisibility();
+    renderCalendar();
+    renderSlots();
+    
     (document.getElementById('contact-form') as HTMLFormElement)?.reset();
   }
 
@@ -384,6 +393,11 @@ import logo from '../assets/logo.jpg';
   }
 
   function selectDate(date: Date) {
+    // If selecting a different date, clear previous slots to avoid confusion
+    if (selectedDate && date.getTime() !== selectedDate.getTime()) {
+        selectedSlots = [];
+    }
+    
     selectedDate = date;
     renderCalendar();
     
@@ -407,20 +421,20 @@ import logo from '../assets/logo.jpg';
         btn.role = "option";
         btn.ariaSelected = isSelected ? "true" : "false";
         btn.className = `time-slot py-2 px-4 rounded-xl border border-gray-200 text-sm font-semibold transition-all ${isSelected ? 'selected' : 'bg-white text-gray-600 hover:border-primary hover:text-primary'}`;
-        btn.onclick = () => toggleSlot(time);
+        btn.onclick = () => toggleSlot(time, selectedDate);
         slotsGrid.appendChild(btn);
     });
 
     updateSelectedSlotsUI();
   }
 
-  function toggleSlot(time: string) {
-    const existingIndex = selectedSlots.findIndex(s => s.time === time && s.date.getTime() === selectedDate.getTime());
+  function toggleSlot(time: string, date: Date) {
+    const existingIndex = selectedSlots.findIndex(s => s.time === time && s.date.getTime() === date.getTime());
     
     if (existingIndex > -1) {
         selectedSlots.splice(existingIndex, 1);
     } else if (selectedSlots.length < 3) {
-        selectedSlots.push({ date: selectedDate, time });
+        selectedSlots.push({ date, time });
     }
     
     renderSlots();
@@ -440,7 +454,10 @@ import logo from '../assets/logo.jpg';
         const tag = document.createElement('div');
         tag.className = 'bg-accent/10 text-accent-dark text-xs font-semibold px-3 py-1.5 rounded-lg flex items-center gap-1';
         tag.innerHTML = `${s.time} <button class="hover:text-red-500" aria-label="Remove ${s.time}">×</button>`;
-        tag.querySelector('button')!.onclick = () => toggleSlot(s.time);
+        tag.querySelector('button')!.onclick = (e) => {
+            e.stopPropagation();
+            toggleSlot(s.time, s.date);
+        };
         selectedSlotsList!.appendChild(tag);
     });
   }
